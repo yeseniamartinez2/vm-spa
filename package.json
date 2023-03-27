@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "React app for Villa Michelle Shelter",
     "browserslist": "> 0.5%, last 2 versions, not dead",
+    "homepage": "https://vmshelter.netlify.app",
     "scripts": {
         "parcel:dev": "parcel src/index.html",
         "parcel:build": "parcel build src/index.html",
