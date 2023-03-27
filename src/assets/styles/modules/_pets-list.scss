@@ -1,0 +1,22 @@
+#pet-card {
+    width: 31%;
+    max-width: 350px;
+}
+
+.pets-list__heading {
+    margin: 40px 0 10px 10%;
+}
+
+.pets-list {
+    margin: 0 10%;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 3.5%;
+    justify-content: space-between;
+
+    h2 {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,54 @@
+@import '../variables';
+
+nav {
+    display: flex;
+    width: 97.2%;
+    margin: 0;
+    background-color: $baseBlue;
+    height: 8vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.4%;
+    font-family: $navFont;
+    min-height: 65px;
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        height: 100%;
+    }
+}
+
+.menu__item a {
+    color: $backgroundWhite;
+}
+
+.btn_outlined {
+    background-color: $baseBlue;
+    border-color: $yellow;
+    border-width: 2px;
+    border-radius: 2px;
+    border-style: solid;
+    height: 50%;
+    width: 100px;
+    font-family: $headerFont;
+    color: $yellow;
+    cursor: pointer;
+}
+
+.username {
+    font-size: 16px;
+    color: $backgroundWhite;
+}
+
+@media (max-width: 900px) {
+    a {
+        color: $darkBlue;
+    }
+}

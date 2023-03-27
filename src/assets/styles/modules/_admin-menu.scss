@@ -1,0 +1,29 @@
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.admin-menu ul {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    transition: width 2s;
+}
+
+.drawer-open ul{
+    padding-left: 2.5vw;
+    width: auto
+}
+
+.drawer-open li, .drawer-open div{
+    padding-left: 0;
+    transition: width 2s;
+}
+
+.drawer-open.MuiListItemButton-root {
+    padding: 5px;
+}
+
+.drawer-open {
+    width: auto;
+    transition: width 2s;
+}

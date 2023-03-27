@@ -1,0 +1,16 @@
+@import '../variables';
+.under-construction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 25px;
+
+    span {
+        font-family: $headerFont;
+        color: gray;
+        font-size: 1.7rem;
+    }
+}

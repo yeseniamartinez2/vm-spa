@@ -1,0 +1,16 @@
+@import '../variables';
+
+.pet-form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    row-gap: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #000;
+    background-color: $backgroundWhite;
+}
