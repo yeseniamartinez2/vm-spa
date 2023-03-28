@@ -1,3 +1,3 @@
 [build] 
-command = "parcel src/index.html" 
+command = "npm run build" 
 build = "build"
