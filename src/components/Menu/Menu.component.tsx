@@ -1,5 +1,4 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { AuthButton } from './AuthButton'
 export const Menu = () => {
@@ -19,7 +18,7 @@ export const Menu = () => {
                     </li>
                     {isAuthenticated && (
                         <li className="menu__item" role="menuitem">
-                            <Link to="admin/pets">Admin Site</Link>
+                            <Link to="admin/">Admin Site</Link>
                         </li>
                     )}
                 </ul>

@@ -34510,38 +34510,79 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _auth0React = require("@auth0/auth0-react");
 var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _appCss = require("./App.css");
+var _adminDashboard = require("./components/AdminDashboard/AdminDashboard");
+var _adminDashboardDefault = parcelHelpers.interopDefault(_adminDashboard);
+var _adminProtectedRoute = require("./components/AdminProtectedRoute");
 var _home = require("./components/Home/Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
 var _menuContainer = require("./components/Menu/Menu.container");
+var _s = $RefreshSig$();
 const App = ()=>{
+    _s();
+    const { getIdTokenClaims  } = (0, _auth0React.useAuth0)();
+    const [roles, setRoles] = (0, _react.useState)("");
+    (0, _react.useEffect)(()=>{
+        const getRoles = async ()=>{
+            const roleClaimType = "https://yeseniatfm.com/roles";
+            const claims = await getIdTokenClaims();
+            if (claims) setRoles(claims[roleClaimType].roles.toString());
+            else setRoles("[]");
+        };
+        getRoles();
+    });
+    if (roles === "") return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+        children: "Loading..."
+    }, void 0, false, {
+        fileName: "src/App.tsx",
+        lineNumber: 22,
+        columnNumber: 30
+    }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menuContainer.MenuContainer), {}, void 0, false, {
                 fileName: "src/App.tsx",
-                lineNumber: 9,
+                lineNumber: 25,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Routes), {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
-                    index: true,
-                    element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {}, void 0, false, void 0, void 0)
-                }, void 0, false, {
-                    fileName: "src/App.tsx",
-                    lineNumber: 11,
-                    columnNumber: 17
-                }, undefined)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        index: true,
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {}, void 0, false, void 0, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.tsx",
+                        lineNumber: 27,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
+                        path: "/admin/*",
+                        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _adminProtectedRoute.AdminProtectedRoute), {
+                            Component: (0, _adminDashboardDefault.default),
+                            roles: roles
+                        }, void 0, false, void 0, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.tsx",
+                        lineNumber: 28,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/App.tsx",
-                lineNumber: 10,
+                lineNumber: 26,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true);
 };
+_s(App, "mY7fZWYQuX1g+5nv3NwWnqchdqg=", false, function() {
+    return [
+        (0, _auth0React.useAuth0)
+    ];
+});
 _c = App;
 exports.default = App;
 var _c;
@@ -34552,45 +34593,52 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./App.css":"6n0o6","./components/Home/Home":"4g9k2","./components/Menu/Menu.container":"4mJsH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6n0o6":[function() {},{}],"4g9k2":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$e44a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","@auth0/auth0-react":"lDrFi","react":"21dqq","react-router-dom":"9xmpe","./App.css":"6n0o6","./components/AdminDashboard/AdminDashboard":"bH2MG","./components/AdminProtectedRoute":"7UNcF","./components/Home/Home":"4g9k2","./components/Menu/Menu.container":"4mJsH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6n0o6":[function() {},{}],"bH2MG":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8778 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$e44a.prelude(module);
+$parcel$ReactRefreshHelpers$8778.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _underConstruction = require("../UnderConstruction");
 var _underConstructionDefault = parcelHelpers.interopDefault(_underConstruction);
-const Home = ()=>{
+const AdminDashboard = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
         className: "intro",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _underConstructionDefault.default), {}, void 0, false, {
-            fileName: "src/components/Home/Home.tsx",
-            lineNumber: 7,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/components/Home/Home.tsx",
-        lineNumber: 6,
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "Admin Dashboard"
+            }, void 0, false, {
+                fileName: "src/components/AdminDashboard/AdminDashboard.tsx",
+                lineNumber: 6,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _underConstructionDefault.default), {}, void 0, false, {
+                fileName: "src/components/AdminDashboard/AdminDashboard.tsx",
+                lineNumber: 7,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/AdminDashboard/AdminDashboard.tsx",
+        lineNumber: 5,
         columnNumber: 9
     }, undefined);
 };
-_c = Home;
-exports.default = Home;
+_c = AdminDashboard;
+exports.default = AdminDashboard;
 var _c;
-$RefreshReg$(_c, "Home");
+$RefreshReg$(_c, "AdminDashboard");
 
-  $parcel$ReactRefreshHelpers$e44a.postlude(module);
+  $parcel$ReactRefreshHelpers$8778.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../UnderConstruction":"lr2W0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lr2W0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../UnderConstruction":"lr2W0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lr2W0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$de8f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34772,7 +34820,90 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"bc7b09a05b2a08f0":"786KC"}],"4mJsH":[function(require,module,exports) {
+},{"bc7b09a05b2a08f0":"786KC"}],"7UNcF":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$13cd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$13cd.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "AdminProtectedRoute", ()=>AdminProtectedRoute);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+const AdminProtectedRoute = (props)=>{
+    _s();
+    const { Component , roles  } = props;
+    let navigate = (0, _reactRouterDom.useNavigate)();
+    if (roles?.includes("admin")) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Component, {}, void 0, false, {
+        fileName: "src/components/AdminProtectedRoute.tsx",
+        lineNumber: 10,
+        columnNumber: 42
+    }, undefined);
+    else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+        children: "not authorized"
+    }, void 0, false, {
+        fileName: "src/components/AdminProtectedRoute.tsx",
+        lineNumber: 11,
+        columnNumber: 17
+    }, undefined);
+//navigate('../not-authorized', { replace: true })
+};
+_s(AdminProtectedRoute, "CzcTeTziyjMsSrAVmHuCCb6+Bfg=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = AdminProtectedRoute;
+var _c;
+$RefreshReg$(_c, "AdminProtectedRoute");
+
+  $parcel$ReactRefreshHelpers$13cd.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4g9k2":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e44a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e44a.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _underConstruction = require("../UnderConstruction");
+var _underConstructionDefault = parcelHelpers.interopDefault(_underConstruction);
+const Home = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+        className: "intro",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _underConstructionDefault.default), {}, void 0, false, {
+            fileName: "src/components/Home/Home.tsx",
+            lineNumber: 7,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Home/Home.tsx",
+        lineNumber: 6,
+        columnNumber: 9
+    }, undefined);
+};
+_c = Home;
+exports.default = Home;
+var _c;
+$RefreshReg$(_c, "Home");
+
+  $parcel$ReactRefreshHelpers$e44a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../UnderConstruction":"lr2W0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4mJsH":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$e6a1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -34812,8 +34943,6 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Menu", ()=>Menu);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _auth0React = require("@auth0/auth0-react");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _authButton = require("./AuthButton");
 var _s = $RefreshSig$();
@@ -34833,12 +34962,12 @@ const Menu = ()=>{
                             src: "http://localhost:1234/logo.svg"
                         }, void 0, false, {
                             fileName: "src/components/Menu/Menu.component.tsx",
-                            lineNumber: 11,
+                            lineNumber: 10,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Menu/Menu.component.tsx",
-                        lineNumber: 10,
+                        lineNumber: 9,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -34851,12 +34980,12 @@ const Menu = ()=>{
                                     children: "Home"
                                 }, void 0, false, {
                                     fileName: "src/components/Menu/Menu.component.tsx",
-                                    lineNumber: 15,
+                                    lineNumber: 14,
                                     columnNumber: 25
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Menu/Menu.component.tsx",
-                                lineNumber: 14,
+                                lineNumber: 13,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -34867,40 +34996,40 @@ const Menu = ()=>{
                                     children: "Adopt"
                                 }, void 0, false, {
                                     fileName: "src/components/Menu/Menu.component.tsx",
-                                    lineNumber: 18,
+                                    lineNumber: 17,
                                     columnNumber: 25
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Menu/Menu.component.tsx",
-                                lineNumber: 17,
+                                lineNumber: 16,
                                 columnNumber: 21
                             }, undefined),
                             isAuthenticated && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                 className: "menu__item",
                                 role: "menuitem",
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "admin/pets",
+                                    to: "admin/",
                                     children: "Admin Site"
                                 }, void 0, false, {
                                     fileName: "src/components/Menu/Menu.component.tsx",
-                                    lineNumber: 22,
+                                    lineNumber: 21,
                                     columnNumber: 29
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Menu/Menu.component.tsx",
-                                lineNumber: 21,
+                                lineNumber: 20,
                                 columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Menu/Menu.component.tsx",
-                        lineNumber: 13,
+                        lineNumber: 12,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Menu/Menu.component.tsx",
-                lineNumber: 9,
+                lineNumber: 8,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34910,24 +35039,24 @@ const Menu = ()=>{
                         children: isAuthenticated && user?.email
                     }, void 0, false, {
                         fileName: "src/components/Menu/Menu.component.tsx",
-                        lineNumber: 28,
+                        lineNumber: 27,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _authButton.AuthButton), {}, void 0, false, {
                         fileName: "src/components/Menu/Menu.component.tsx",
-                        lineNumber: 30,
+                        lineNumber: 29,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Menu/Menu.component.tsx",
-                lineNumber: 27,
+                lineNumber: 26,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Menu/Menu.component.tsx",
-        lineNumber: 8,
+        lineNumber: 7,
         columnNumber: 9
     }, undefined);
 };
@@ -34945,7 +35074,7 @@ $RefreshReg$(_c, "Menu");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@auth0/auth0-react":"lDrFi","react":"21dqq","react-router-dom":"9xmpe","./AuthButton":"2PSx1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2PSx1":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@auth0/auth0-react":"lDrFi","react-router-dom":"9xmpe","./AuthButton":"2PSx1","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2PSx1":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$09b1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
