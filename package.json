@@ -9,7 +9,7 @@
         "parcel:build": "parcel build src/index.html",
         "clean": "rimraf dist .parcel-cache .cache-loader",
         "start": "npm-run-all clean copy parcel:dev",
-        "build": "npm-run-all clean copy parcel:build",
+        "build": "npm-run-all clean copy parcel:build copy",
         "copy": "cp -R src/public dist"
     },
     "author": "Yesenia Martínez Acevedo",
