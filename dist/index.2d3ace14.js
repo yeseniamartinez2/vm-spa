@@ -35178,7 +35178,9 @@ const LogoutButton = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
         className: "btn_outlined",
         onClick: ()=>logout({
-                returnTo: window.location.origin
+                logoutParams: {
+                    returnTo: window.location.origin
+                }
             }),
         children: "Log Out"
     }, void 0, false, {
