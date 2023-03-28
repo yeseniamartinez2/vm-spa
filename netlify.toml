@@ -1,3 +1,2 @@
 [build] 
-command = "npm run parcel:build" 
-build = "build"
+command = "npm run parcel:build"
