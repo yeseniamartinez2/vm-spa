@@ -10,7 +10,7 @@
         "clean": "rimraf dist .parcel-cache .cache-loader",
         "start": "npm-run-all clean copy parcel:dev",
         "build": "npm-run-all clean copy parcel:build",
-        "copy": "cp -R src/public dist"
+        "copy": "cp -R src/public build"
     },
     "author": "Yesenia Martínez Acevedo",
     "license": "ISC",
