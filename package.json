@@ -3,14 +3,14 @@
     "version": "1.0.0",
     "description": "React app for Villa Michelle Shelter",
     "browserslist": "> 0.5%, last 2 versions, not dead",
-    "homepage": "https://vmshelter.netlify.app",
+    "homepage": "https://master--vmshelter.netlify.app",
     "scripts": {
         "parcel:dev": "parcel src/index.html",
-        "parcel:build": "parcel build src/index.html --dist-dir build",
+        "parcel:build": "parcel build src/index.html",
         "clean": "rimraf dist .parcel-cache .cache-loader",
         "start": "npm-run-all clean copy parcel:dev",
         "build": "npm-run-all clean copy parcel:build",
-        "copy": "cp -R src/public build"
+        "copy": "cp -R src/public dist"
     },
     "author": "Yesenia Martínez Acevedo",
     "license": "ISC",
