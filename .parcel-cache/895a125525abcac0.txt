@@ -1,15 +1,18 @@
-27759
-64/home/unix/coding-projects/vm-shelter-app/spa/dist/manifest.json1679945112878409062 0
-61/home/unix/coding-projects/vm-shelter-app/spa/dist/index.html1679945118238409114 0
-67/home/unix/coding-projects/vm-shelter-app/spa/dist/construction.svg1679945112878409062 0
-72/home/unix/coding-projects/vm-shelter-app/spa/dist/index.b5e2fca8.js.map1679945118248409114 0
-71/home/unix/coding-projects/vm-shelter-app/spa/dist/construction-com.svg1679945112878409062 0
-73/home/unix/coding-projects/vm-shelter-app/spa/dist/index.4838e463.css.map1679945118248409114 0
-95/home/unix/coding-projects/vm-shelter-app/spa/dist/construction-svgrepo-com.svg:Zone.Identifier1679945112878409062 0
-63/home/unix/coding-projects/vm-shelter-app/spa/dist/logoblue.svg1679945112878409062 0
-59/home/unix/coding-projects/vm-shelter-app/spa/dist/logo.svg1679945112878409062 0
-68/home/unix/coding-projects/vm-shelter-app/spa/dist/index.b5e2fca8.js1679945118238409114 0
-50/home/unix/coding-projects/vm-shelter-app/spa/dist1679945118248409114 1
+27763
+69/home/unix/coding-projects/vm-shelter-app/spa/build/index.3a2223cb.js1680018848164267246 0
+62/home/unix/coding-projects/vm-shelter-app/spa/build/index.html1680018848164267246 0
+73/home/unix/coding-projects/vm-shelter-app/spa/build/index.1ec710e2.js.map1680018848184267247 0
+51/home/unix/coding-projects/vm-shelter-app/spa/build1680018848184267247 1
+58/home/unix/coding-projects/vm-shelter-app/spa/netlify.toml1680018587932776049 0
+64/home/unix/coding-projects/vm-shelter-app/spa/dist/manifest.json1680018843454267200 0
+61/home/unix/coding-projects/vm-shelter-app/spa/dist/index.html1680018843454267200 0
+67/home/unix/coding-projects/vm-shelter-app/spa/dist/construction.svg1680018843454267200 0
+71/home/unix/coding-projects/vm-shelter-app/spa/dist/construction-com.svg1680018843454267200 0
+95/home/unix/coding-projects/vm-shelter-app/spa/dist/construction-svgrepo-com.svg:Zone.Identifier1680018843454267200 0
+63/home/unix/coding-projects/vm-shelter-app/spa/dist/logoblue.svg1680018843454267200 0
+59/home/unix/coding-projects/vm-shelter-app/spa/dist/logo.svg1680018843454267200 0
+50/home/unix/coding-projects/vm-shelter-app/spa/dist1680018843454267200 1
+56/home/unix/coding-projects/vm-shelter-app/spa/.gitignore1679945364157147171 0
 57/home/unix/coding-projects/vm-shelter-app/spa/src/App.css1679937533552367255 0
 70/home/unix/coding-projects/vm-shelter-app/spa/src/public/manifest.json1679938815965130181 0
 67/home/unix/coding-projects/vm-shelter-app/spa/src/public/index.html1679938815965130181 0
@@ -1167,7 +1170,7 @@
 96/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/internals/set-is-subset-of.js1679943739145828123 0
 98/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/internals/host-report-errors.js1679943738945828121 0
 97/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/internals/error-stack-clear.js1679943738745828119 0
-59/home/unix/coding-projects/vm-shelter-app/spa/dist/logo.png1679945112878409062 0
+59/home/unix/coding-projects/vm-shelter-app/spa/dist/logo.png1680018843454267200 0
 109/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/internals/promise-constructor-detection.js1679943739115828123 0
 91/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/internals/whitespaces.js1679943739305828125 0
 102/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/internals/async-iterator-indexed.js1679943738625828118 0
@@ -2001,7 +2004,6 @@
 95/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/proposals/math-extensions.js1679943739075828122 0
 92/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/proposals/array-unique.js1679943738605828118 0
 92/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/proposals/math-signbit.js1679943739075828122 0
-69/home/unix/coding-projects/vm-shelter-app/spa/dist/index.4838e463.css1679945118238409114 0
 92/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/proposals/number-range.js1679943739085828123 0
 94/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/proposals/iterator-range.js1679943739025828122 0
 102/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/proposals/json-parse-with-source.js1679943739045828122 0
@@ -2342,6 +2344,7 @@
 90/home/unix/coding-projects/vm-shelter-app/spa/node_modules/caniuse-lite/data/regions/CD.js1679934985886814279 0
 90/home/unix/coding-projects/vm-shelter-app/spa/node_modules/caniuse-lite/data/regions/WS.js1679934986566814286 0
 90/home/unix/coding-projects/vm-shelter-app/spa/node_modules/caniuse-lite/data/regions/LT.js1679934986426814285 0
+74/home/unix/coding-projects/vm-shelter-app/spa/build/index.1670866c.css.map1680018848184267247 0
 90/home/unix/coding-projects/vm-shelter-app/spa/node_modules/caniuse-lite/data/regions/PW.js1679934986486814285 0
 90/home/unix/coding-projects/vm-shelter-app/spa/node_modules/caniuse-lite/data/regions/CI.js1679934985926814280 0
 90/home/unix/coding-projects/vm-shelter-app/spa/node_modules/caniuse-lite/data/regions/ME.js1679934986436814285 0
@@ -2942,6 +2945,7 @@
 81/home/unix/coding-projects/vm-shelter-app/spa/node_modules/util-deprecate/LICENSE1679943738445828116 0
 84/home/unix/coding-projects/vm-shelter-app/spa/node_modules/util-deprecate/browser.js1679943738455828116 0
 84/home/unix/coding-projects/vm-shelter-app/spa/node_modules/util-deprecate/History.md1679943738475828117 0
+69/home/unix/coding-projects/vm-shelter-app/spa/build/index.1ec710e2.js1680018848164267246 0
 73/home/unix/coding-projects/vm-shelter-app/spa/node_modules/util-deprecate1679943738465828117 1
 94/home/unix/coding-projects/vm-shelter-app/spa/node_modules/rimraf/dist/cjs/src/retry-busy.d.ts1679934989837946025 0
 86/home/unix/coding-projects/vm-shelter-app/spa/node_modules/rimraf/dist/cjs/src/fs.d.ts1679934989837946025 0
@@ -6357,7 +6361,6 @@
 85/home/unix/coding-projects/vm-shelter-app/spa/node_modules/param-case/param-case.d.ts1679943738465828117 0
 111/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/CircularProgress/CircularProgress.d.ts1679937945219064174 0
 79/home/unix/coding-projects/vm-shelter-app/spa/node_modules/param-case/README.md1679943738435828116 0
-72/home/unix/coding-projects/vm-shelter-app/spa/dist/index.e81443e6.js.map1679945118248409114 0
 117/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/node/ListItemAvatar/listItemAvatarClasses.js1679937944899064171 0
 110/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/base/SliderUnstyled/sliderUnstyledClasses.d.ts1679937944629064168 0
 69/home/unix/coding-projects/vm-shelter-app/spa/node_modules/param-case1679943738465828117 1
@@ -6454,7 +6457,7 @@
 110/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/modern/utils/createChainedFunction.js1679937944469064167 0
 119/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/node/TablePagination/TablePaginationActions.js1679937945069064172 0
 104/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@parcel/transformer-postcss/src/loadConfig.js1679934987947946007 0
-50/home/unix/coding-projects/vm-shelter-app/spa/.env1679944669149769123 0
+50/home/unix/coding-projects/vm-shelter-app/spa/.env1679947043139178161 0
 92/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@auth0/auth0-spa-js/src/errors.ts1679943738615828118 0
 118/home/unix/coding-projects/vm-shelter-app/spa/node_modules/rimraf/node_modules/minimatch/dist/cjs/brace-expressions.js1679934990427946031 0
 94/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@parcel/watcher/prebuilds/win32-x641679934987006814290 1
@@ -7534,6 +7537,7 @@
 102/home/unix/coding-projects/vm-shelter-app/spa/node_modules/es-abstract/2018/SymbolDescriptiveString.js1679934986596814286 0
 97/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/DialogContent/index.d.ts1679937945249064174 0
 100/home/unix/coding-projects/vm-shelter-app/spa/node_modules/parcel/node_modules/has-flag/package.json1679934984636814267 0
+70/home/unix/coding-projects/vm-shelter-app/spa/build/index.1670866c.css1680018848164267246 0
 112/home/unix/coding-projects/vm-shelter-app/spa/node_modules/jest-validate/node_modules/color-convert/CHANGELOG.md1679938490049385221 0
 82/home/unix/coding-projects/vm-shelter-app/spa/node_modules/dom-helpers/isTransform1679937944179064164 1
 103/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/legacy/Dialog/dialogClasses.js1679937944509064167 0
@@ -8191,7 +8195,7 @@
 107/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/system/legacy/cssVars/createCssVarsTheme.js1679937944119064163 0
 96/home/unix/coding-projects/vm-shelter-app/spa/node_modules/jest-cli/node_modules/chalk/readme.md1679938490269385223 0
 111/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@testing-library/dom/node_modules/color-name/LICENSE1679938490109385221 0
-58/home/unix/coding-projects/vm-shelter-app/spa/package.json1679945110418409038 0
+58/home/unix/coding-projects/vm-shelter-app/spa/package.json1680018810162103168 0
 85/home/unix/coding-projects/vm-shelter-app/spa/node_modules/jest-validate/package.json1679938490329385224 0
 113/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@testing-library/dom/node_modules/ansi-styles/index.js1679938490059385221 0
 112/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@testing-library/dom/node_modules/ansi-styles/license1679938490049385221 0
@@ -8675,6 +8679,7 @@
 91/home/unix/coding-projects/vm-shelter-app/spa/node_modules/aria-query/lib/etc/roles/literal1679938490619385226 1
 91/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@testing-library/user-event/dist1679938490729385227 1
 84/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@parcel/core/package.json1679934989967946027 0
+73/home/unix/coding-projects/vm-shelter-app/spa/build/index.3a2223cb.js.map1680018848184267247 0
 94/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/node/Tooltip/index.js1679937944819064170 0
 94/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/node/Slider/Slider.js1679937944999064172 0
 110/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@parcel/codeframe/node_modules/ansi-styles/index.js1679934984646814267 0
@@ -9869,7 +9874,7 @@
 80/home/unix/coding-projects/vm-shelter-app/spa/node_modules/signal-exit/README.md1679934984726814268 0
 115/home/unix/coding-projects/vm-shelter-app/spa/node_modules/regenerate-unicode-properties/Script_Extensions/Buhid.js1679935953110229057 0
 109/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@babel/plugin-syntax-export-namespace-from/LICENSE1679935952930229055 0
-61/home/unix/coding-projects/vm-shelter-app/spa/dist/robots.txt1679945112878409062 0
+61/home/unix/coding-projects/vm-shelter-app/spa/dist/robots.txt1680018843454267200 0
 149/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@parcel/core/test/fixtures/plugins/node_modules/parcel-transformer-no-engines/package.json1679934989977946027 0
 109/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@parcel/reporter-cli/node_modules/chalk/index.d.ts1679934984996814271 0
 82/home/unix/coding-projects/vm-shelter-app/spa/node_modules/lodash/fp/stubString.js1679938490829385228 0
@@ -12204,7 +12209,7 @@
 87/home/unix/coding-projects/vm-shelter-app/spa/node_modules/is-array-buffer/package.json1679934984846814269 0
 94/home/unix/coding-projects/vm-shelter-app/spa/node_modules/typescript/lib/cancellationToken.js1679934989907946026 0
 87/home/unix/coding-projects/vm-shelter-app/spa/node_modules/msgpackr-extract/binding.gyp1679934985526814276 0
-45/home/unix/coding-projects/vm-shelter-app/spa1679945113248409065 1
+45/home/unix/coding-projects/vm-shelter-app/spa1680018843814267204 1
 102/home/unix/coding-projects/vm-shelter-app/spa/node_modules/jose/dist/node/esm/key/generate_key_pair.js1679943738655828118 0
 108/home/unix/coding-projects/vm-shelter-app/spa/node_modules/babel-plugin-istanbul/lib/load-nyc-config-sync.js1679938490119385222 0
 102/home/unix/coding-projects/vm-shelter-app/spa/node_modules/parcel/node_modules/color-convert/README.md1679934984916814270 0
@@ -19137,7 +19142,6 @@
 104/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@babel/plugin-syntax-import-meta/package.json1679938490119385222 0
 91/home/unix/coding-projects/vm-shelter-app/spa/node_modules/es-abstract/2017/StringCreate.js1679934986596814286 0
 101/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/base/ButtonUnstyled/ButtonUnstyled.js1679937944069064163 0
-68/home/unix/coding-projects/vm-shelter-app/spa/dist/index.e81443e6.js1679945118238409114 0
 107/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/private-theming/legacy/useTheme/useTheme.js1679937944059064163 0
 91/home/unix/coding-projects/vm-shelter-app/spa/node_modules/es-abstract/2017/DateFromTime.js1679934986226814283 0
 80/home/unix/coding-projects/vm-shelter-app/spa/node_modules/pretty-format/LICENSE1679938489959385220 0
@@ -23028,7 +23032,7 @@
 97/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/actual/instance/to-reversed.js1679943739225828124 0
 77/home/unix/coding-projects/vm-shelter-app/spa/node_modules/.package-lock.json1679945062615594156 0
 97/home/unix/coding-projects/vm-shelter-app/spa/node_modules/combined-stream/lib/combined_stream.js1679938211869341141 0
-98/home/unix/coding-projects/vm-shelter-app/spa/dist/construction-svgrepo-com(1).svg:Zone.Identifier1679945112878409062 0
+98/home/unix/coding-projects/vm-shelter-app/spa/dist/construction-svgrepo-com(1).svg:Zone.Identifier1680018843454267200 0
 84/home/unix/coding-projects/vm-shelter-app/spa/node_modules/combined-stream/Readme.md1679938211869341141 0
 98/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/legacy/Divider/Divider.js1679937944519064167 0
 115/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/material/node/ImageListItem/imageListItemClasses.js1679937944669064169 0
@@ -27266,7 +27270,7 @@
 87/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/base/Portal/Portal.d.ts1679937944619064168 0
 95/home/unix/coding-projects/vm-shelter-app/spa/node_modules/core-js/full/string/code-point-at.js1679943738665828118 0
 87/home/unix/coding-projects/vm-shelter-app/spa/node_modules/jest-changed-files/README.md1679938490289385223 0
-62/home/unix/coding-projects/vm-shelter-app/spa/dist/favicon.ico1679945112878409062 0
+62/home/unix/coding-projects/vm-shelter-app/spa/dist/favicon.ico1680018843454267200 0
 84/home/unix/coding-projects/vm-shelter-app/spa/node_modules/which-typed-array/LICENSE1679934984696814268 0
 84/home/unix/coding-projects/vm-shelter-app/spa/node_modules/@mui/base/useAutocomplete1679937944639064168 1
 76/home/unix/coding-projects/vm-shelter-app/spa/node_modules/cliui/LICENSE.txt1679938490299385223 0

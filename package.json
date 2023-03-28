@@ -6,7 +6,7 @@
     "homepage": "https://vmshelter.netlify.app",
     "scripts": {
         "parcel:dev": "parcel src/index.html",
-        "parcel:build": "parcel build src/index.html",
+        "parcel:build": "parcel build src/index.html --dist-dir build",
         "clean": "rimraf dist .parcel-cache .cache-loader",
         "start": "npm-run-all clean copy parcel:dev",
         "build": "npm-run-all clean copy parcel:build",
