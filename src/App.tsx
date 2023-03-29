@@ -6,6 +6,7 @@ import AdminDashboard from './components/AdminDashboard/AdminDashboard'
 import { AdminProtectedRoute } from './components/AdminProtectedRoute'
 import Home from './components/Home/Home'
 import { MenuContainer } from './components/Menu/Menu.container'
+import { PetListContainer } from './components/PetList/PetList.container'
 const App = () => {
     const { getIdTokenClaims } = useAuth0()
     const [roles, setRoles] = useState('')
@@ -29,6 +30,7 @@ const App = () => {
                     path="/admin/*"
                     element={<AdminProtectedRoute Component={AdminDashboard} roles={roles} />}
                 />
+                <Route path="pets/" element={<PetListContainer />} />
             </Routes>
         </>
     )

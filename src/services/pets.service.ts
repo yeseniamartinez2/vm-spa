@@ -1,8 +1,13 @@
 import axios from 'axios'
-const baseURL = process.env.REACT_APP_API_URL + 'pets/'
+const baseURL = process.env.VM_API_URL + 'pets/'
 
 export default class PetService {
     getPets() {
+        console.log(
+            '🌿 ~ file: pets.service.ts:7 ~ PetService ~ getPets ~ axios.get(baseURL):',
+            baseURL
+        )
+
         return axios.get(baseURL)
     }
 
