@@ -1,4 +1,8 @@
 import { Menu } from './Menu.component'
-export const MenuContainer = () => {
-    return <Menu />
+
+export interface IMenuProps {
+    roles: string
+}
+export const MenuContainer = ({ roles }: IMenuProps) => {
+    return <Menu roles={roles} />
 }

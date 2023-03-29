@@ -1,6 +1,6 @@
 import { Auth0Provider } from '@auth0/auth0-react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import App from './App'
 import './assets/styles/main.scss'
 import ThemeContext from './contexts/theme.context'

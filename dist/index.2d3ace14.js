@@ -2945,7 +2945,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _auth0React.Auth0Provid
         redirect_uri: window.location.origin
     },
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _themeContextDefault.default), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.HashRouter), {
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
                 fileName: "src/index.tsx",
                 lineNumber: 20,
@@ -34534,16 +34534,12 @@ const App = ()=>{
         };
         getRoles();
     });
-    if (roles === "") return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-        children: "Loading..."
-    }, void 0, false, {
-        fileName: "src/App.tsx",
-        lineNumber: 22,
-        columnNumber: 30
-    }, undefined);
+    //if (roles === '') return <p>Loading...</p>
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menuContainer.MenuContainer), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menuContainer.MenuContainer), {
+                roles: roles
+            }, void 0, false, {
                 fileName: "src/App.tsx",
                 lineNumber: 25,
                 columnNumber: 13
@@ -34915,10 +34911,12 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MenuContainer", ()=>MenuContainer);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _menuComponent = require("./Menu.component");
-const MenuContainer = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menuComponent.Menu), {}, void 0, false, {
+const MenuContainer = ({ roles  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menuComponent.Menu), {
+        roles: roles
+    }, void 0, false, {
         fileName: "src/components/Menu/Menu.container.tsx",
-        lineNumber: 3,
+        lineNumber: 7,
         columnNumber: 12
     }, undefined);
 };
@@ -34946,7 +34944,7 @@ var _auth0React = require("@auth0/auth0-react");
 var _reactRouterDom = require("react-router-dom");
 var _authButton = require("./AuthButton");
 var _s = $RefreshSig$();
-const Menu = ()=>{
+const Menu = ({ roles  })=>{
     _s();
     const { isAuthenticated , user  } = (0, _auth0React.useAuth0)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
@@ -34962,12 +34960,12 @@ const Menu = ()=>{
                             src: "http://localhost:1234/logo.svg"
                         }, void 0, false, {
                             fileName: "src/components/Menu/Menu.component.tsx",
-                            lineNumber: 10,
+                            lineNumber: 11,
                             columnNumber: 21
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Menu/Menu.component.tsx",
-                        lineNumber: 9,
+                        lineNumber: 10,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -34980,12 +34978,12 @@ const Menu = ()=>{
                                     children: "Home"
                                 }, void 0, false, {
                                     fileName: "src/components/Menu/Menu.component.tsx",
-                                    lineNumber: 14,
+                                    lineNumber: 15,
                                     columnNumber: 25
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Menu/Menu.component.tsx",
-                                lineNumber: 13,
+                                lineNumber: 14,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -34996,67 +34994,72 @@ const Menu = ()=>{
                                     children: "Adopt"
                                 }, void 0, false, {
                                     fileName: "src/components/Menu/Menu.component.tsx",
-                                    lineNumber: 17,
+                                    lineNumber: 18,
                                     columnNumber: 25
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Menu/Menu.component.tsx",
-                                lineNumber: 16,
+                                lineNumber: 17,
                                 columnNumber: 21
-                            }, undefined),
-                            isAuthenticated && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "menu__item",
-                                role: "menuitem",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                                    to: "admin/",
-                                    children: "Admin Site"
-                                }, void 0, false, {
-                                    fileName: "src/components/Menu/Menu.component.tsx",
-                                    lineNumber: 21,
-                                    columnNumber: 29
-                                }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/components/Menu/Menu.component.tsx",
-                                lineNumber: 20,
-                                columnNumber: 25
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Menu/Menu.component.tsx",
-                        lineNumber: 12,
+                        lineNumber: 13,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Menu/Menu.component.tsx",
-                lineNumber: 8,
+                lineNumber: 9,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         className: "username",
-                        children: isAuthenticated && user?.email
-                    }, void 0, false, {
+                        children: [
+                            isAuthenticated && user?.email,
+                            roles.includes("admin") && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "menu__admin-site",
+                                role: "menu__admin-site",
+                                children: [
+                                    "Go to ",
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                        to: "admin/",
+                                        children: "Admin Site"
+                                    }, void 0, false, {
+                                        fileName: "src/components/Menu/Menu.component.tsx",
+                                        lineNumber: 27,
+                                        columnNumber: 35
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/Menu/Menu.component.tsx",
+                                lineNumber: 26,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/components/Menu/Menu.component.tsx",
-                        lineNumber: 27,
+                        lineNumber: 23,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _authButton.AuthButton), {}, void 0, false, {
                         fileName: "src/components/Menu/Menu.component.tsx",
-                        lineNumber: 29,
+                        lineNumber: 32,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Menu/Menu.component.tsx",
-                lineNumber: 26,
+                lineNumber: 22,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Menu/Menu.component.tsx",
-        lineNumber: 7,
+        lineNumber: 8,
         columnNumber: 9
     }, undefined);
 };

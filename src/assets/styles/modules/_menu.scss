@@ -29,6 +29,14 @@ nav {
     color: $backgroundWhite;
 }
 
+.menu__admin-site {
+    font-size: 13px;
+    text-align: end;
+    a {
+        text-decoration: underline;
+    }
+}
+
 .btn_outlined {
     background-color: $baseBlue;
     border-color: $yellow;
@@ -45,6 +53,9 @@ nav {
 .username {
     font-size: 16px;
     color: $backgroundWhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 @media (max-width: 900px) {

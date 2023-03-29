@@ -19,10 +19,10 @@ const App = () => {
         getRoles()
     })
 
-    if (roles === '') return <p>Loading...</p>
+    //if (roles === '') return <p>Loading...</p>
     return (
         <>
-            <MenuContainer />
+            <MenuContainer roles={roles} />
             <Routes>
                 <Route index element={<Home />} />
                 <Route

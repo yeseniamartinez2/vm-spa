@@ -92,6 +92,15 @@ nav div {
   color: #f5f5f5;
 }
 
+.menu__admin-site {
+  text-align: end;
+  font-size: 13px;
+}
+
+.menu__admin-site a {
+  text-decoration: underline;
+}
+
 .btn_outlined {
   height: 50%;
   width: 100px;
@@ -105,7 +114,10 @@ nav div {
 
 .username {
   color: #f5f5f5;
+  flex-direction: column;
+  justify-content: flex-end;
   font-size: 16px;
+  display: flex;
 }
 
 @media (max-width: 900px) {
