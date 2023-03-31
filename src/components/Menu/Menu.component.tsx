@@ -24,7 +24,7 @@ export const Menu = ({ roles }: IMenuProps) => {
                     {isAuthenticated && user?.email}
                     {roles.includes('admin') && (
                         <span className="menu__admin-site" role="menu__admin-site">
-                            Go to <Link to="admin/">Admin Site</Link>
+                            Go to <Link to="admin/pets">Admin Site</Link>
                         </span>
                     )}
                 </span>

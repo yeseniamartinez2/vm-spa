@@ -1,16 +1,26 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import React from 'react'
-import Theme from 'src/models/theme.interface'
 import Props from '../models/props.interface'
+import Theme from '../models/theme.interface'
 const ThemeContext = ({ children }: Props) => {
-    const lightTheme: Theme = { palette: {
-        primary: {
-            main: '#005c64',
+    const lightTheme: Theme = {
+        palette: {
+            primary: {
+                main: '#005c64',
+            },
+            secondary: {
+                main: '#efd309',
+            },
+            success: {
+                main: '#005c64',
+            },
+            error: {
+                main: '#bf211e',
+            },
+            pink: {
+                main: '#f0eae5',
+            },
         },
-        secondary: {
-            main: '#efd309',
-        },
-    }}
+    }
     const theme = createTheme(lightTheme)
 
     return <ThemeProvider theme={theme}>{children}</ThemeProvider>

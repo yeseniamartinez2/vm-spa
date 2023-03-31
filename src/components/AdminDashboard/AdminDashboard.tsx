@@ -1,10 +1,11 @@
-import UnderConstruction from '../UnderConstruction'
-
+import { Route, Routes } from 'react-router-dom'
+import { PetTableContainer } from '../PetTable/PetTable.container'
 const AdminDashboard = () => {
     return (
-        <section className="intro">
-            <h2>Admin Dashboard</h2>
-            <UnderConstruction />
+        <section className="admin-dashboard">
+            <Routes>
+                <Route path="pets" element={<PetTableContainer />} />
+            </Routes>
         </section>
     )
 }

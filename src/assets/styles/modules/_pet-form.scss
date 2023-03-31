@@ -1,16 +1,48 @@
 @import '../variables';
 
 .pet-form {
-    width: 400px;
+    width: 330px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-
-    row-gap: 10px;
+    padding: 25px 40px;
+    row-gap: 15px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid #000;
+    border: 1px solid #414141;
     background-color: $backgroundWhite;
+
+    h2 {
+        margin: 0;
+    }
+
+    .filename {
+        font-family: $baseFont;
+        font-style: italic;
+        font-size: 16px;
+        color: #757575;
+    }
+
+    .truncatetext {
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.form-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    div {
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
 }

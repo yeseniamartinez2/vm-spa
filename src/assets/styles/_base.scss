@@ -22,6 +22,9 @@ body {
     max-width: 100vw;
 }
 
+p {
+    font-family: $baseFont;
+}
 a {
     color: white;
     text-decoration: none;
@@ -29,4 +32,8 @@ a {
 
 .logo path {
     fill: $yellow;
+}
+
+.fullwidth {
+    width: 100%;
 }

@@ -6,5 +6,14 @@ export default interface Theme {
         secondary: {
             main: string
         }
+        success: {
+            main: string
+        }
+        error: {
+            main: string
+        }
+        pink: {
+            main: string
+        }
     }
 }
