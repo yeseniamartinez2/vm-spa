@@ -5,7 +5,7 @@ import './App.css'
 import AdminDashboard from './components/AdminDashboard/AdminDashboard'
 import { AdminProtectedRoute } from './components/AdminProtectedRoute'
 import Home from './components/Home/Home'
-import { MenuContainer } from './components/Menu/Menu.container'
+import { MenuContainer } from './components/Navigation/Menu.container'
 import { PetListContainer } from './components/PetList/PetList.container'
 const App = () => {
     const { getIdTokenClaims } = useAuth0()

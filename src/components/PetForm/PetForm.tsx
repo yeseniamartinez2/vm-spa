@@ -14,9 +14,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import dayjs, { Dayjs } from 'dayjs'
 import React, { FunctionComponent } from 'react'
 import PetService from '../../services/pets.service'
-import GenderSelect from '../FormFields/GenderSelect'
-import NameTextfield from '../FormFields/NameTextfield'
-import SpeciesSelect from '../FormFields/SpeciesSelect'
+import GenderSelect from '../AdminFormFields/GenderSelect'
+import NameTextfield from '../AdminFormFields/NameTextfield'
+import SpeciesSelect from '../AdminFormFields/SpeciesSelect'
 type Props = {
     petId: string
     toggleModal: () => void
@@ -90,7 +90,7 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
             formData.append('species', species)
             formData.append('gender', gender)
             formData.append('filename', petPhotoFilename[0])
-            formData.append('spayedNeut', spayedNeutChecked.toString())
+            formData.append('spay_neut', spayedNeutChecked.toString())
             formData.append('vaxxed', vaxxedChecked.toString())
             formData.append('description', description)
             formData.append('petPhoto', petPhotoFile)

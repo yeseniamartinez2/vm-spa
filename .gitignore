@@ -1,1 +1,5 @@
 node_modules
+dist
+.parcel_cache
+.parcel_cache/data.mdb
+data.mdb

@@ -106,7 +106,15 @@ export const PetTable: FunctionComponent<Props> = ({ pets, loading, error }) => 
             align: 'center',
             disableColumnMenu: true,
         },
-        { field: 'name', headerName: 'Name', width: 100, align: 'left' },
+        {
+            field: 'name',
+            headerName: 'Name',
+            width: 80,
+            align: 'left',
+            renderCell: (params: any) => {
+                return params.value.charAt(0).toUpperCase() + params.value.slice(1)
+            },
+        },
         {
             field: 'dob',
             headerName: 'DOB',
@@ -118,16 +126,25 @@ export const PetTable: FunctionComponent<Props> = ({ pets, loading, error }) => 
             width: 90,
             align: 'left',
         },
-
         {
             field: 'species',
+            headerName: 'Species',
+            width: 90,
+            align: 'left',
+            renderCell: (params: any) => {
+                return params.value.charAt(0).toUpperCase() + params.value.slice(1)
+            },
+        },
+
+        {
+            field: 'spay_neut',
             headerName: 'Spayed/Neutered',
             width: 120,
             align: 'center',
             renderCell: (params: any) => booleanToIcon(params.value),
         },
         {
-            field: 'kids_comp',
+            field: 'vaxxed',
             headerName: 'Vaccinated',
             width: 90,
             align: 'center',
@@ -143,17 +160,17 @@ export const PetTable: FunctionComponent<Props> = ({ pets, loading, error }) => 
         {
             field: 'description',
             headerName: 'Description',
-            width: 200,
+            width: 150,
             align: 'left',
         },
         {
             field: 'last_modified',
             headerName: 'Last Modified',
-            width: 130,
+            width: 150,
             align: 'left',
             renderCell: (params: any) => {
                 if (params.value) {
-                    return <p>{dayjs(params.value).format('DD-MM-YYYY')}</p>
+                    return <p>{dayjs(params.value).format('DD-MM-YYYY HH:MM')}</p>
                 } else return null
             },
         },
@@ -186,14 +203,6 @@ export const PetTable: FunctionComponent<Props> = ({ pets, loading, error }) => 
     return (
         <section className="pets-table">
             <h2>Pets</h2>
-            <DataGrid
-                rows={rows}
-                columns={columns}
-                getRowId={(row) => row._id}
-                autoHeight
-                sx={{ width: '100%' }}
-            />
-
             <Button
                 className="btn-add-pet"
                 variant="contained"
@@ -202,6 +211,15 @@ export const PetTable: FunctionComponent<Props> = ({ pets, loading, error }) => 
             >
                 Add Pet
             </Button>
+            <div className="datagrid_wrapper">
+                <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    autoHeight
+                    getRowId={(row) => row._id}
+                    sx={{ width: '100%', backgroundColor: '#ffffff' }}
+                />
+            </div>
 
             {openModal && (
                 <PetForm

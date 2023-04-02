@@ -1,6 +1,8 @@
 #pet-card {
     width: 31%;
-    max-width: 350px;
+    max-width: 320px;
+    min-width: 290px;
+    flex-grow: 1;
 }
 
 .pets-list__heading {
@@ -13,7 +15,7 @@
     flex-wrap: wrap;
     row-gap: 10px;
     column-gap: 3.5%;
-    justify-content: space-between;
+    justify-content: flex-start;
 
     h2 {
         width: 100%;
