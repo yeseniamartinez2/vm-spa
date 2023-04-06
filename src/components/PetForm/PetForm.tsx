@@ -13,6 +13,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import dayjs, { Dayjs } from 'dayjs'
 import React, { FunctionComponent } from 'react'
+import IPet from '../../models/pet.interface'
 import PetService from '../../services/pets.service'
 import GenderSelect from '../AdminFormFields/GenderSelect'
 import NameTextfield from '../AdminFormFields/NameTextfield'
@@ -32,19 +33,23 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
     const [description, setDescription] = React.useState('')
     const [dob, setDOB] = React.useState<Dayjs | null>(null)
     const [petPhotoFile, setPetPhotoFile] = React.useState<File>()
-    const [petPhotoFilename, setPetPhotoFilename] = React.useState([''])
+    const [petPhotoFilename, setPetPhotoFilename] = React.useState('')
     const [spayedNeutChecked, setSpayedNeutChecked] = React.useState(false)
     const [vaxxedChecked, setVaxxedChecked] = React.useState(false)
 
     React.useEffect(() => {
         if (petId !== '') {
-            console.log(petId)
             ps.getPetById(petId).then((res) => {
+                let spayedNeutBool = res.data[0].spay_neut === 'true'
+                let vaxxedBool = res.data[0].vaxxed === 'true'
                 setName(res.data[0].name)
                 setDOB(dayjs(res.data[0].dob))
                 setDescription(res.data[0].description)
                 setGender(res.data[0].gender)
                 setSpecies(res.data[0].species)
+                setPetPhotoFilename(res.data[0].filename)
+                setSpayedNeutChecked(spayedNeutBool)
+                setVaxxedChecked(vaxxedBool)
             })
         }
     }, [petId])
@@ -74,52 +79,77 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
     }
 
     const toggleIt = () => {
+        setPetId('')
         setIsOpen(!isOpen)
         toggleModal()
     }
 
-    const handleSubmit = () => {
+    const appendFormData = () => {
         let formData = new FormData()
-
-        if (!petPhotoFile) {
-            console.log('no file')
-        } else {
-            const dobString = dob?.format('YYYY-MM-DDTHH:mm:ss') || ''
-            formData.append('name', name)
-            formData.append('dob', dobString)
-            formData.append('species', species)
-            formData.append('gender', gender)
-            formData.append('filename', petPhotoFilename[0])
-            formData.append('spay_neut', spayedNeutChecked.toString())
-            formData.append('vaxxed', vaxxedChecked.toString())
-            formData.append('description', description)
+        const dobString = dob?.format('YYYY-MM-DDTHH:mm:ss') || ''
+        formData.append('name', name)
+        formData.append('dob', dobString)
+        formData.append('species', species)
+        formData.append('gender', gender)
+        formData.append('spay_neut', spayedNeutChecked.toString())
+        formData.append('vaxxed', vaxxedChecked.toString())
+        formData.append('description', description)
+        formData.append('filename', petPhotoFilename)
+        if (petPhotoFile) {
             formData.append('petPhoto', petPhotoFile)
-            if (petId === '') {
-                ps.addPet(formData) //missing token
-                    .then((res) => {
-                        if (res.status === 200) {
-                            setRows((prevRows: any) => {
-                                const newRows = [...prevRows, res.data.ops[0]]
-                                return newRows
-                            })
-                        }
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                    })
-            } else {
-                ps.putPet(petId, formData)
-                    .then((res) => {
-                        if (res.status === 200) {
-                            console.log('🚀 success  !!!!')
-                        }
-                    })
-                    .catch((e) => {
-                        console.log(e)
-                    })
-            }
+        }
+        return formData
+    }
+
+    const handleSubmit = () => {
+        const body = appendFormData()
+        if (petId === '') {
+            ps.addPet(body) //missing token
+                .then((res) => {
+                    if (res.status === 200) {
+                        setRows((prevRows: any) => {
+                            const newRows = [...prevRows, res.data.ops[0]]
+                            return newRows
+                        })
+                    }
+                })
+                .catch((e) => {
+                    console.log(e)
+                })
+        } else {
+            ps.putPet(petId, body)
+                .then((res) => {
+                    console.log('🌿 ~ file: PetForm.tsx:124 ~ .then ~ res:', res)
+                    if (res.status === 200) {
+                        const dobString = dob?.format('YYYY-MM-DDTHH:mm:ss') || ''
+                        setRows((prevRows: IPet[]) => {
+                            let pet = prevRows.filter((item: IPet) => item._id === petId)[0]
+                            console.log('🌿 ~ file: PetForm.tsx:126 ~ setRows ~ pet:', pet)
+                            let newRows = prevRows
+                            let petIndex = prevRows.indexOf(pet)
+                            newRows[petIndex] = {
+                                _id: petId,
+                                name: 'skhfdkshfkshb',
+                                dob: dob?.toDate(),
+                                species: species,
+                                gender: gender,
+                                filename: petPhotoFilename,
+                                spay_neut: spayedNeutChecked,
+                                vaxxed: vaxxedChecked,
+                                description: description,
+                                last_modified: Date.now().toString(),
+                            }
+                            console.log('🌿 ~ file: PetForm.tsx:142 ~ setRows ~ newRows:', newRows)
+                            return newRows
+                        })
+                    }
+                })
+                .catch((e) => {
+                    console.log(e)
+                })
         }
         toggleIt()
+        setPetId('')
     }
 
     return (
@@ -148,7 +178,7 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
                         <FormControlLabel
                             control={
                                 <Checkbox
-                                    value={spayedNeutChecked}
+                                    checked={spayedNeutChecked}
                                     onChange={handleSpayedNeutCheckbox}
                                 />
                             }
@@ -156,7 +186,7 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
                         />
                         <FormControlLabel
                             control={
-                                <Checkbox value={vaxxedChecked} onChange={handleVaxxedCheckbox} />
+                                <Checkbox checked={vaxxedChecked} onChange={handleVaxxedCheckbox} />
                             }
                             label="Vaccinated"
                         />
@@ -179,7 +209,7 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
                 <div className="form-row">
                     <div className="stack">
                         <p>Choose a picture*:</p>{' '}
-                        {petPhotoFilename.length > 0 ? (
+                        {petPhotoFilename !== '' ? (
                             <div className="truncatetext">
                                 <Tooltip title={petPhotoFilename}>
                                     <span className="filename">{petPhotoFilename}</span>
@@ -193,11 +223,13 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
                         <input
                             hidden
                             onChange={(event) => {
-                                console.log(event.target.files)
+                                const month = dob!.month()
+                                const year = dob!.year()
+                                const filename = name + '_' + month + year
                                 if (event.target.files !== null) {
                                     const file = event.target.files[0]
                                     setPetPhotoFile(file)
-                                    setPetPhotoFilename([file.name])
+                                    setPetPhotoFilename(filename)
                                 }
                             }}
                             accept="image/*"

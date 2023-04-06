@@ -79,25 +79,21 @@ export const PetTable: FunctionComponent<Props> = ({ pets, loading, error }) => 
 
             renderCell: (params: any) => {
                 if ((params as GridValueGetterParams).value) {
-                    const dob = new Date(params.row.dob)
                     return (
                         <Tooltip
                             title={
                                 <img
                                     height="150"
                                     width="150"
-                                    src={
-                                        api_url +
-                                        params.row.name +
-                                        '_' +
-                                        dob!.getMonth() +
-                                        dob!.getFullYear() +
-                                        '_thumbnail.avif'
-                                    }
+                                    src={api_url + params.value + '_medium.avif'}
                                 />
                             }
                         >
-                            <img height="40" width="40" src={api_url + params.value} />
+                            <img
+                                height="40"
+                                width="40"
+                                src={api_url + params.value + '_thumbnail.avif'}
+                            />
                         </Tooltip>
                     )
                 } else return null
@@ -112,7 +108,8 @@ export const PetTable: FunctionComponent<Props> = ({ pets, loading, error }) => 
             width: 80,
             align: 'left',
             renderCell: (params: any) => {
-                return params.value.charAt(0).toUpperCase() + params.value.slice(1)
+                if (params.value === 'null') return null
+                else return params.value.charAt(0).toUpperCase() + params.value.slice(1)
             },
         },
         {
@@ -129,7 +126,7 @@ export const PetTable: FunctionComponent<Props> = ({ pets, loading, error }) => 
         {
             field: 'species',
             headerName: 'Species',
-            width: 90,
+            width: 65,
             align: 'left',
             renderCell: (params: any) => {
                 return params.value.charAt(0).toUpperCase() + params.value.slice(1)

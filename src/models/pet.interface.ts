@@ -7,8 +7,8 @@ export default interface IPet {
     species?: string
     gender?: string
     filename?: string
-    kids_comp?: boolean
-    pets_comp?: boolean
+    spay_neut?: boolean
+    vaxxed?: boolean
     description?: string
     last_modified?: string
 }

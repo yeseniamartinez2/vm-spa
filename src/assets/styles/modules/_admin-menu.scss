@@ -21,9 +21,8 @@ aside ul {
     }
 }
 
-.admin-menu__item {
+li.admin-menu__item {
     padding: 15px 2.3vw;
-    width: 100%;
     height: 100%;
     max-width: 300px;
     a {
@@ -36,7 +35,7 @@ aside ul {
 }
 
 .admin-menu__item:hover {
-    background-color: aliceblue;
+    background-color: $shadeBlue;
 }
 
 .admin-menu__item__label {

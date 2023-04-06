@@ -10,20 +10,13 @@ type Props = {
     pet: IPet
 }
 const PetCard: FunctionComponent<Props> = ({ pet }) => {
-    const dobDate: Date | undefined = new Date(pet.dob || '')
+    const filename = pet.filename || ''
     return (
         <Card id="pet-card" key={pet.name} data-testid="pet">
             <img
                 height="200"
                 width="325"
-                src={
-                    process.env.VM_API_URL +
-                    pet.name +
-                    '_' +
-                    dobDate!.getMonth() +
-                    dobDate!.getFullYear() +
-                    '_medium.avif'
-                }
+                src={process.env.VM_API_URL + filename + '_medium.avif'}
                 alt={pet.name}
             />
             <h2>{pet.name}</h2>

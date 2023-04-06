@@ -30,6 +30,7 @@ export default class PetService {
     }
 
     putPet(id: string, body: FormData) {
+        console.log('🌿 ~ file: pets.service.ts:33 ~ PetService ~ putPet ~ body:', body)
         const config = {
             headers: {
                 'content-type': 'multipart/form-data',
