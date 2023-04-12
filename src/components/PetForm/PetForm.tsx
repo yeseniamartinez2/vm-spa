@@ -36,7 +36,7 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
     const [petPhotoFilename, setPetPhotoFilename] = React.useState('')
     const [spayedNeutChecked, setSpayedNeutChecked] = React.useState(false)
     const [vaxxedChecked, setVaxxedChecked] = React.useState(false)
-
+    const [updatedPet, setUpdatedPet] = React.useState<null | IPet>(null)
     React.useEffect(() => {
         if (petId !== '') {
             ps.getPetById(petId).then((res) => {
