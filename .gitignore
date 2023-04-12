@@ -4,3 +4,6 @@ dist
 .parcel_cache/data.mdb
 parcel_cache
 data.mdb
+.env
+development.env
+production.env
