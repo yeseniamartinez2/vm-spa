@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import PetService from '../services/pets.service'
-export const usePetsService = (initial: [], id: string | null | undefined) => {
+export const usePetsService = (initial: any, id: string | null | undefined) => {
     const ps = new PetService()
     const [data, setData] = useState(initial)
     const [loading, setLoading] = useState(false)
@@ -10,7 +10,6 @@ export const usePetsService = (initial: [], id: string | null | undefined) => {
         const fetchPets = async () => {
             setError(false)
             setLoading(true)
-
             try {
                 let res
                 if (id !== null) res = await ps.getPetById(id)
@@ -23,6 +22,6 @@ export const usePetsService = (initial: [], id: string | null | undefined) => {
             }
         }
         fetchPets()
-    }, [])
+    }, [id])
     return { data, loading, error }
 }

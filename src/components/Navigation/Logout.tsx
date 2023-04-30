@@ -5,7 +5,7 @@ const LogoutButton = () => {
 
     return (
         <button
-            className="btn_outlined"
+            className="btn_outlined btn_light"
             onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
         >
             Log Out

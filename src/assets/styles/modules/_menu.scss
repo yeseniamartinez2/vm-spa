@@ -37,19 +37,6 @@ nav {
     }
 }
 
-.btn_outlined {
-    background-color: $baseBlue;
-    border-color: $yellow;
-    border-width: 2px;
-    border-radius: 2px;
-    border-style: solid;
-    height: 50%;
-    width: 100px;
-    font-family: $headerFont;
-    color: $yellow;
-    cursor: pointer;
-}
-
 .username {
     font-size: 16px;
     color: $backgroundWhite;

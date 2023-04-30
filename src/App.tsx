@@ -6,6 +6,7 @@ import AdminDashboard from './components/AdminDashboard/AdminDashboard'
 import { AdminProtectedRoute } from './components/AdminProtectedRoute'
 import Home from './components/Home/Home'
 import { MenuContainer } from './components/Navigation/Menu.container'
+import { PetDetailContainer } from './components/PetDetail/PetDetail.container'
 import { PetListContainer } from './components/PetList/PetList.container'
 const App = () => {
     const { getIdTokenClaims } = useAuth0()
@@ -20,7 +21,6 @@ const App = () => {
         getRoles()
     })
 
-    //if (roles === '') return <p>Loading...</p>
     return (
         <>
             <MenuContainer roles={roles} />
@@ -31,6 +31,7 @@ const App = () => {
                     element={<AdminProtectedRoute Component={AdminDashboard} roles={roles} />}
                 />
                 <Route path="pets/" element={<PetListContainer />} />
+                <Route path="pets/:petId" element={<PetDetailContainer />} />
             </Routes>
         </>
     )

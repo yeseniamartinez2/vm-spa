@@ -1,0 +1,54 @@
+@import '../variables';
+
+.pet-detail__container {
+    margin: 35px 10%;
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+        'img . heading'
+        'img . health-info'
+        'img . description'
+        'img . request';
+    border-radius: 2px;
+    background-color: #ffffff;
+    -webkit-box-shadow: -1px -1px 16px 0px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: -1px -1px 16px 0px rgba(0, 0, 0, 0.33);
+    box-shadow: -1px -1px 16px 0px rgba(0, 0, 0, 0.33);
+}
+
+.pet-detail__featured-img__container {
+    grid-area: img;
+    overflow: hidden;
+
+    img {
+        object-fit: cover;
+        object-position: center;
+        height: 500px;
+        min-height: 100%;
+        width: 550px;
+    }
+}
+
+.pet-detail__heading {
+    grid-area: heading;
+
+    span {
+        color: gray;
+        font-family: $baseFont;
+        font-size: 20px;
+        margin: 0 10px;
+    }
+}
+
+.pet-detail__health-info {
+    grid-area: health-info;
+}
+
+.pet-detail__description {
+    grid-area: description;
+}
+
+.pet-detail__request {
+    grid-area: request;
+}

@@ -37,3 +37,32 @@ a {
 .fullwidth {
     width: 100%;
 }
+
+.btn_outlined {
+    background-color: transparent;
+    border-width: 2px;
+    border-radius: 2px;
+    border-style: solid;
+    height: auto;
+    width: auto;
+    max-width: 250px;
+    padding: 5px 18px;
+    font-family: $headerFont;
+
+    cursor: pointer;
+}
+
+.btn_light {
+    border-color: $yellow;
+    color: $yellow;
+}
+
+.btn_dark {
+    border-color: $baseBlue;
+    color: $baseBlue;
+}
+
+.btn_outlined:hover {
+    border-color: $darkBlue;
+    color: $darkBlue;
+}
