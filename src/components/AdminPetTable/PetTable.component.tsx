@@ -3,8 +3,6 @@ import CancelIcon from '@mui/icons-material/Cancel'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
-import FemaleIcon from '@mui/icons-material/Female'
-import MaleIcon from '@mui/icons-material/Male'
 import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import { DataGrid, GridActionsCellItem, GridColDef, GridValueGetterParams } from '@mui/x-data-grid'
@@ -12,9 +10,9 @@ import dayjs from 'dayjs'
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import Pet from '../../models/pet.interface'
 import PetService from '../../services/pets.service'
+import { genderIcon } from '../../utils/functions'
 import PetForm from '../PetForm/PetForm'
 
-const moment = require('moment')
 export type Props = {
     pets: Pet[]
     loading?: boolean
@@ -60,12 +58,6 @@ export const PetTable: FunctionComponent<Props> = ({ pets, loading, error }) => 
     const booleanToIcon = (bool: string) => {
         if (bool === 'true') return <CheckCircleIcon color="primary" />
         else return <CancelIcon color="error" />
-    }
-
-    const genderIcon = (gender: string) => {
-        if (gender === 'female') return <FemaleIcon sx={{ color: '#ff8aa7' }} />
-        if (gender === 'male') return <MaleIcon color="primary" />
-        else return <p>Other</p>
     }
 
     useEffect(() => {

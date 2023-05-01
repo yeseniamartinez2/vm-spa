@@ -3,6 +3,33 @@
     max-width: 320px;
     min-width: 290px;
     flex-grow: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 0 0 10px 0;
+
+    a {
+        color: $baseBlue;
+        font-family: $baseFont;
+        text-decoration: underline;
+    }
+}
+
+.pet-card__content {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    h2 {
+        margin: 0;
+        padding: 10px 0;
+        width: 130px !important;
+        text-align: left;
+    }
 }
 
 .pets-list__heading {
@@ -10,7 +37,7 @@
 }
 
 .pets-list {
-    margin: 0 10%;
+    margin: 0 10% 30px 10%;
     display: flex;
     flex-wrap: wrap;
     row-gap: 10px;

@@ -4,13 +4,13 @@
     margin: 35px 10%;
     display: grid;
     grid-template-columns: 49% 2% 49%;
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: 70px 40px 1fr 50px;
     grid-template-areas:
         'img . heading'
         'img . health-info'
         'img . description'
         'img . request';
-    border-radius: 2px;
+    border-radius: 5px;
     background-color: #ffffff;
     -webkit-box-shadow: -1px -1px 16px 0px rgba(0, 0, 0, 0.33);
     -moz-box-shadow: -1px -1px 16px 0px rgba(0, 0, 0, 0.33);
@@ -32,7 +32,17 @@
 
 .pet-detail__heading {
     grid-area: heading;
+    display: flex;
+    align-items: baseline;
+    padding: 30px 0 0 0;
+    margin: 0;
 
+    h2 {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: baseline;
+    }
     span {
         color: gray;
         font-family: $baseFont;
@@ -43,12 +53,47 @@
 
 .pet-detail__health-info {
     grid-area: health-info;
+    margin: 0;
+    padding: 0;
+    ul {
+        width: 50%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        font-family: $baseFont;
+    }
+
+    li {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .pet-detail__description {
     grid-area: description;
+    padding: 20px 20px 0 0;
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
 }
 
 .pet-detail__request {
     grid-area: request;
+}
+
+.pet-detail__login {
+    font-family: $baseFont;
+    padding: 0 10px;
+    a {
+        color: $baseBlue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
