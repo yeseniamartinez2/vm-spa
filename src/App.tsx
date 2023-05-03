@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import AdminDashboard from './components/AdminDashboard/AdminDashboard'
 import { AdminProtectedRoute } from './components/AdminProtectedRoute'
+import AdoptionRequestForm from './components/AdoptionRequestForm/AdoptionRequestForm.component'
 import Home from './components/Home/Home'
 import { MenuContainer } from './components/Navigation/Menu.container'
 import { PetDetailContainer } from './components/PetDetail/PetDetail.container'
@@ -32,6 +33,7 @@ const App = () => {
                 />
                 <Route path="pets/" element={<PetListContainer />} />
                 <Route path="pets/:petId" element={<PetDetailContainer />} />
+                <Route path="adoption-request" element={<AdoptionRequestForm />} />
             </Routes>
         </>
     )

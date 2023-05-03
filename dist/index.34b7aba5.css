@@ -497,6 +497,43 @@ nav div {
   text-decoration: underline;
 }
 
+.adoption-request__container {
+  width: 500px;
+  height: auto;
+  grid-template: "heading heading" 80px
+                 "image form"
+                 / 230px 500px;
+  margin: 0 20%;
+  display: grid;
+}
+
+.adoption-request__container form {
+  background-color: #fff;
+  border: 1px solid #b2b2b2;
+  border-radius: 4px;
+  grid-area: form;
+}
+
+.adoption-request__container h2 {
+  width: 100%;
+  grid-area: heading;
+}
+
+.adoption-request__image-wrapper {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.adoption-request__image-wrapper img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.adoption-request__column1 {
+  grid-area: image;
+}
+
 .under-construction {
   height: 100%;
   width: 100%;
