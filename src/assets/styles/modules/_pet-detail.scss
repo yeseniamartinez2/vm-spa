@@ -86,6 +86,16 @@
 
 .pet-detail__request {
     grid-area: request;
+    span {
+        font-family: $baseFont;
+        margin: 0 0 0 10px;
+    }
+
+    a {
+        color: $baseBlue;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
 
 .pet-detail__login {

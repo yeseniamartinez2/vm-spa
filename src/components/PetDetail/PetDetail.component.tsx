@@ -1,13 +1,22 @@
+import { useAuth0 } from '@auth0/auth0-react'
+import CancelIcon from '@mui/icons-material/Cancel'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import FemaleIcon from '@mui/icons-material/Female'
 import MaleIcon from '@mui/icons-material/Male'
 import { FunctionComponent } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Pet from '../../models/pet.interface'
+
 export type Props = {
     pet: Pet[]
     loading?: boolean
     error?: boolean
 }
 
+const booleanToIcon = (bool: any) => {
+    if (bool === 'true') return <CheckCircleIcon fontSize="small" color="primary" />
+    else return <CancelIcon fontSize="small" color="error" />
+}
 const genderIcon = (gender: string) => {
     if (gender === 'female') return <FemaleIcon sx={{ color: '#ff8aa7' }} />
     if (gender === 'male') return <MaleIcon color="primary" />
@@ -25,6 +34,11 @@ function getAge(dateString: string) {
 }
 
 export const PetDetailComponent: FunctionComponent<Props> = ({ pet, loading, error }) => {
+    const navigate = useNavigate()
+    const { isAuthenticated, loginWithRedirect } = useAuth0()
+    const navigateToRequest = () => {
+        navigate('../adoption-request', { state: pet })
+    }
     if (loading) {
         return <p role="feedback">Loading...</p>
     }
@@ -50,8 +64,8 @@ export const PetDetailComponent: FunctionComponent<Props> = ({ pet, loading, err
                 </h2>
                 <section className="pet-detail__health-info">
                     <ul>
-                        <li>Vaccinated: {vaxxed} </li>
-                        <li>Spayed/neutered: {spay_neut} </li>
+                        <li>Vaccinated: {vaxxed && booleanToIcon(vaxxed)} </li>
+                        <li>Spayed/neutered: {spay_neut && booleanToIcon(spay_neut)} </li>
                     </ul>
                 </section>
                 <section className="pet-detail__description">
@@ -59,10 +73,20 @@ export const PetDetailComponent: FunctionComponent<Props> = ({ pet, loading, err
                     <p>{description}</p>
                 </section>
                 <section className="pet-detail__request">
-                    <button className="btn_outlined btn_dark">Request Adoption</button>
-                    <span>
-                        <a>Log In</a> to make request
-                    </span>
+                    <button
+                        className={
+                            isAuthenticated ? 'btn_outlined btn_dark' : 'btn_outlined btn_disabled'
+                        }
+                        onClick={navigateToRequest}
+                        disabled={!isAuthenticated}
+                    >
+                        Request Adoption
+                    </button>
+                    {!isAuthenticated && (
+                        <span>
+                            <a onClick={() => loginWithRedirect()}>Log In</a> to make request
+                        </span>
+                    )}
                 </section>
             </div>
         )

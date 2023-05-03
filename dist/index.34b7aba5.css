@@ -475,6 +475,17 @@ nav div {
   grid-area: request;
 }
 
+.pet-detail__request span {
+  margin: 0 0 0 10px;
+  font-family: Lato, sans-serif;
+}
+
+.pet-detail__request a {
+  color: #005c64;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .pet-detail__login {
   padding: 0 10px;
   font-family: Lato, sans-serif;
