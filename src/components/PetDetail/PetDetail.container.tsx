@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { usePetsService } from '../../hooks/pets.hooks'
+import { usePetsService } from '../../hooks/pets.hook'
 import PetDetailComponent from './PetDetail.component'
 export const PetDetailContainer = () => {
     const { petId } = useParams()

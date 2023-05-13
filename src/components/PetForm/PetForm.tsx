@@ -119,12 +119,10 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
         } else {
             ps.putPet(petId, body)
                 .then((res) => {
-                    console.log('🌿 ~ file: PetForm.tsx:124 ~ .then ~ res:', res)
                     if (res.status === 200) {
                         const dobString = dob?.format('YYYY-MM-DDTHH:mm:ss') || ''
                         setRows((prevRows: IPet[]) => {
                             let pet = prevRows.filter((item: IPet) => item._id === petId)[0]
-                            console.log('🌿 ~ file: PetForm.tsx:126 ~ setRows ~ pet:', pet)
                             let newRows = prevRows
                             let petIndex = prevRows.indexOf(pet)
                             newRows[petIndex] = {
@@ -139,7 +137,6 @@ const PetForm: FunctionComponent<Props> = ({ toggleModal, petId, setPetId, setRo
                                 description: description,
                                 last_modified: Date.now().toString(),
                             }
-                            console.log('🌿 ~ file: PetForm.tsx:142 ~ setRows ~ newRows:', newRows)
                             return newRows
                         })
                     }

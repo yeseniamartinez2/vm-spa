@@ -5,7 +5,7 @@
 
     display: grid;
     grid-template-columns: 230px 500px;
-    grid-template-rows: 80px auto;
+    grid-template-rows: 65px auto;
     grid-template-areas:
         'heading heading'
         'image form';
@@ -16,6 +16,16 @@
         border-style: solid;
         border-color: rgb(178, 178, 178);
         border-width: 1px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px 15px;
+        height: 450px;
+    }
+
+    input {
+        width: 90%;
+        margin: 5px 0;
     }
 
     h2 {
@@ -37,4 +47,25 @@
 
 .adoption-request__column1 {
     grid-area: image;
+}
+
+.adoption-request__feedback-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.adoption-request__feedback-container {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 17px 50px 30px 50px;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: gray;
 }

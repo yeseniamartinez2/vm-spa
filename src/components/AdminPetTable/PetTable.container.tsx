@@ -1,4 +1,4 @@
-import { usePetsService } from '../../hooks/pets.hooks'
+import { usePetsService } from '../../hooks/pets.hook'
 import { PetTable } from './PetTable.component'
 export const PetTableContainer = () => {
     const { data, loading, error } = usePetsService([], null)

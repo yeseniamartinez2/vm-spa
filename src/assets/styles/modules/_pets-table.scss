@@ -1,5 +1,4 @@
 .pets-table {
-    width: 100%;
     height: auto;
     display: flex;
     align-items: flex-start;
@@ -13,7 +12,7 @@
     }
 
     .datagrid_wrapper {
-        width: 100%;
+        width: auto;
         height: auto;
         padding: 0;
         display: flex;

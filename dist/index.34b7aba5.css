@@ -100,6 +100,7 @@ a {
   align-items: flex-start;
   margin: 10px;
   display: flex;
+  overflow-x: scroll;
 }
 
 .admin-dashboard .pets-table {
@@ -270,7 +271,6 @@ nav div {
 }
 
 .pets-table {
-  width: 100%;
   height: auto;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -285,7 +285,7 @@ nav div {
 }
 
 .pets-table .datagrid_wrapper {
-  width: 100%;
+  width: auto;
   height: auto;
   align-items: flex-start;
   padding: 0;
@@ -500,7 +500,7 @@ nav div {
 .adoption-request__container {
   width: 500px;
   height: auto;
-  grid-template: "heading heading" 80px
+  grid-template: "heading heading" 65px
                  "image form"
                  / 230px 500px;
   margin: 0 20%;
@@ -508,10 +508,20 @@ nav div {
 }
 
 .adoption-request__container form {
+  height: 450px;
   background-color: #fff;
   border: 1px solid #b2b2b2;
   border-radius: 4px;
+  flex-direction: column;
   grid-area: form;
+  justify-content: space-between;
+  padding: 20px 15px;
+  display: flex;
+}
+
+.adoption-request__container input {
+  width: 90%;
+  margin: 5px 0;
 }
 
 .adoption-request__container h2 {
@@ -532,6 +542,24 @@ nav div {
 
 .adoption-request__column1 {
   grid-area: image;
+}
+
+.adoption-request__feedback-modal {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.adoption-request__feedback-container {
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 4px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 50px 30px;
+  display: flex;
 }
 
 .under-construction {

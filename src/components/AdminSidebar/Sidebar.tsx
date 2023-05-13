@@ -20,7 +20,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li className="admin-menu__item">
-                    <Link to="pets">
+                    <Link to="adoption-requests">
                         <InsertDriveFileIcon />
                         <span className="admin-menu__item__label">Adoption Requests</span>
                     </Link>
