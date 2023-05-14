@@ -10,7 +10,7 @@ import { MenuContainer } from './components/Navigation/Menu.container'
 import { PetDetailContainer } from './components/PetDetail/PetDetail.container'
 import { PetListContainer } from './components/PetList/PetList.container'
 const App = () => {
-    const { getIdTokenClaims } = useAuth0()
+    const { getIdTokenClaims, user } = useAuth0()
     const [roles, setRoles] = useState('')
     useEffect(() => {
         const getRoles = async () => {
@@ -24,7 +24,7 @@ const App = () => {
 
     return (
         <>
-            <MenuContainer roles={roles} />
+            <MenuContainer roles={roles} email={user?.email} />
             <Routes>
                 <Route index element={<Home />} />
                 <Route

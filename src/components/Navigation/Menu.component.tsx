@@ -1,9 +1,23 @@
 import { useAuth0 } from '@auth0/auth0-react'
+import Drawer from '@mui/material/Drawer'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { IAdoptionRequest } from '../../models/adoptionRequest.interface'
 import { AuthButton } from './AuthButton'
-import { IMenuProps } from './Menu.container'
-export const Menu = ({ roles }: IMenuProps) => {
+import RequestTile from './RequestTile'
+
+export interface IMenuProps {
+    roles: string
+    requests: IAdoptionRequest[]
+}
+export const Menu = ({ roles, requests }: IMenuProps) => {
     const { isAuthenticated, user } = useAuth0()
+    const [openDrawer, setOpenDrawer] = useState(false)
+
+    const toggleDrawer = () => {
+        setOpenDrawer(!openDrawer)
+    }
+
     return (
         <nav className="menu_bar">
             <div>
@@ -17,9 +31,25 @@ export const Menu = ({ roles }: IMenuProps) => {
                     <li className="menu__item" role="menuitem">
                         <Link to="pets">Adopt</Link>
                     </li>
+                    {requests.length > 0 && (
+                        <li className="menu__item" role="menuitem" onClick={() => toggleDrawer()}>
+                            My Requests
+                        </li>
+                    )}
                 </ul>
             </div>
             <div>
+                <Drawer
+                    className="adoption-requests__list"
+                    anchor={'right'}
+                    open={openDrawer}
+                    onClose={() => toggleDrawer()}
+                >
+                    <h2>Adoption Requests</h2>
+                    {requests.map((req) => (
+                        <RequestTile adoptionRequest={req} />
+                    ))}
+                </Drawer>
                 <span className="username">
                     {isAuthenticated && user?.email}
                     {roles.includes('admin') && (

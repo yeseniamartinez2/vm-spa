@@ -33,4 +33,12 @@ export default class AdoptionRequestService {
         }
         return axios.put(baseURL, body, config)
     }
+
+    getRequestById(id: string | null | undefined) {
+        return axios.get(baseURL + id)
+    }
+
+    getRequestsByUser(email: string | null | undefined) {
+        return axios.get(process.env.VM_API_URL + 'user-adoption-requests/' + email)
+    }
 }

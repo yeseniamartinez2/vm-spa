@@ -238,7 +238,8 @@ nav div {
   display: flex;
 }
 
-.menu__item a {
+.menu__item {
+  cursor: pointer;
   color: #f8f8f8;
 }
 
@@ -495,6 +496,28 @@ nav div {
   color: #005c64;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.request-tile {
+  border-bottom: 1px solid #c7c7c7;
+  margin: 10px;
+  padding: 0 0 10px;
+  display: flex;
+}
+
+.request-tile__info {
+  flex-direction: column;
+  justify-content: flex-start;
+  display: flex;
+}
+
+.request-tile__info h3, .request-tile__info p {
+  margin: 0 5px;
+  padding: 0;
+}
+
+.adoption-requests__list h2 {
+  margin: 20px;
 }
 
 .adoption-request__container {

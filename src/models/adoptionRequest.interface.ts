@@ -9,4 +9,5 @@ export interface IAdoptionRequest {
     experience_description: string
     status: string
     date_submitted: Date
+    pet?: any
 }

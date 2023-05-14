@@ -25,7 +25,8 @@ nav {
     }
 }
 
-.menu__item a {
+.menu__item {
+    cursor: pointer;
     color: $backgroundWhite;
 }
 

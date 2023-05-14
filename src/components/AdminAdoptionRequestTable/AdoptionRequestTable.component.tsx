@@ -1,13 +1,13 @@
 import CancelIcon from '@mui/icons-material/Cancel'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import DeleteIcon from '@mui/icons-material/Delete'
-import EditIcon from '@mui/icons-material/Edit'
+import DoneOutlineIcon from '@mui/icons-material/DoneOutline'
+import HighlightOffIcon from '@mui/icons-material/HighlightOff'
 import { DataGrid, GridActionsCellItem, GridColDef, GridValueGetterParams } from '@mui/x-data-grid'
 import dayjs from 'dayjs'
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import { IAdoptionRequest } from '../../models/adoptionRequest.interface'
 import AdoptionRequestService from '../../services/adoptionRequest.service'
-
 export type Props = {
     adoptionRequests: IAdoptionRequest[]
     loading?: boolean
@@ -30,17 +30,77 @@ export const AdoptionRequestTableComponent: FunctionComponent<Props> = ({
         },
     ])
 
-    // const handleDelete = (id: string, token: string) => {
-    //     ps.deletePetById(id, token).then((res) => {
-    //         if (res.status === 202) {
-    //             setRows((prevRows) => prevRows.filter((row) => id !== row._id))
-    //         }
-    //     })
-    // }
+    const handleDelete = (id: string) => {
+        ars.deleteAdoptionRequestById(id).then((res) => {
+            if (res.status === 202) {
+                setRows((prevRows) => prevRows.filter((row) => id !== row._id))
+            }
+        })
+    }
+
+    const updateStatusUI = (status: string, id: string) => {
+        let adoptionRequest = rows.filter((item: IAdoptionRequest) => item._id === id)[0]
+        let newRows = rows
+        let index = rows.indexOf(adoptionRequest)
+        let updatedRequest = adoptionRequest
+        updatedRequest.status = status
+        newRows[index] = updatedRequest
+        setRows(newRows)
+    }
+
+    const handleApprove = (id: string) => {
+        const body = {
+            id: id,
+            status: 'approved',
+        }
+        updateStatusUI('approved', id)
+        ars.updateAdoptionRequestStatus(body).then((res) => {
+            if (res.status !== 200) {
+            }
+        })
+    }
+
+    const handleReject = (id: string) => {
+        const body = {
+            id: id,
+            status: 'rejected',
+        }
+        updateStatusUI('rejected', id)
+        ars.updateAdoptionRequestStatus(body).then((res) => {
+            if (res.status !== 200) {
+            }
+        })
+    }
 
     const booleanToIcon = (bool: string) => {
         if (bool === 'true') return <CheckCircleIcon color="primary" />
         else return <CancelIcon color="error" />
+    }
+
+    const columnActions = (row: IAdoptionRequest) => {
+        let actions = [
+            <GridActionsCellItem
+                icon={<DeleteIcon />}
+                label="Delete"
+                onClick={() => handleDelete(row._id)}
+            />,
+        ]
+        if (row.status === 'submitted') {
+            actions = actions.concat([
+                <GridActionsCellItem
+                    icon={<DoneOutlineIcon sx={{ color: 'green' }} />}
+                    label="Approve"
+                    onClick={() => handleApprove(row._id)}
+                />,
+                <GridActionsCellItem
+                    icon={<HighlightOffIcon sx={{ color: 'red' }} />}
+                    label="Reject"
+                    onClick={() => handleReject(row._id)}
+                />,
+            ])
+        }
+
+        return actions
     }
 
     useEffect(() => {
@@ -57,9 +117,8 @@ export const AdoptionRequestTableComponent: FunctionComponent<Props> = ({
                     return <p>{params.value[0].name}</p>
                 }
             },
-            width: 120,
+            width: 150,
             align: 'left',
-            disableColumnMenu: true,
         },
         {
             field: 'user_fullname',
@@ -131,11 +190,8 @@ export const AdoptionRequestTableComponent: FunctionComponent<Props> = ({
         {
             field: 'actions',
             type: 'actions',
-            width: 80,
-            getActions: (params) => [
-                <GridActionsCellItem icon={<DeleteIcon />} label="Delete" onClick={() => {}} />,
-                <GridActionsCellItem icon={<EditIcon />} label="Edit" onClick={() => {}} />,
-            ],
+            width: 100,
+            getActions: (params) => columnActions(params.row),
         },
     ]
 
@@ -151,13 +207,15 @@ export const AdoptionRequestTableComponent: FunctionComponent<Props> = ({
             <h2>Adoption Requests</h2>
 
             <div className="datagrid_wrapper">
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    autoHeight
-                    getRowId={(row) => row._id}
-                    sx={{ width: '100%', backgroundColor: '#ffffff' }}
-                />
+                {rows && (
+                    <DataGrid
+                        rows={rows}
+                        columns={columns}
+                        autoHeight
+                        getRowId={(row) => row._id}
+                        sx={{ width: '100%', backgroundColor: '#ffffff' }}
+                    />
+                )}
             </div>
         </section>
     )

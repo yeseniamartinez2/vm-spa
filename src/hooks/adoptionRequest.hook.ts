@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import AdoptionRequestService from '../services/adoptionRequest.service'
-export const useAdoptionRequestsService = (initial: any, id: string | null | undefined) => {
+export const useAdoptionRequestsService = (initial: any, email: string | null | undefined) => {
     const ars = new AdoptionRequestService()
     const [data, setData] = useState(initial)
     const [loading, setLoading] = useState(false)
@@ -12,9 +12,8 @@ export const useAdoptionRequestsService = (initial: any, id: string | null | und
             setLoading(true)
             try {
                 let res
-                //if (id !== null) res = await ps.getPetById(id)
-                //else
-                res = await ars.getAdoptionRequests()
+                if (email !== null) res = await ars.getRequestsByUser(email)
+                else res = await ars.getAdoptionRequests()
                 setData(res.data)
             } catch (e) {
                 setError(true)
@@ -23,6 +22,6 @@ export const useAdoptionRequestsService = (initial: any, id: string | null | und
             }
         }
         fetchAdoptionRequests()
-    }, [id])
+    }, [email])
     return { data, loading, error }
 }
