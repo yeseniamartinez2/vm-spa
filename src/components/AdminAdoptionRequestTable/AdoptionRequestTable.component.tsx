@@ -114,7 +114,7 @@ export const AdoptionRequestTableComponent: FunctionComponent<Props> = ({
 
             renderCell: (params: any) => {
                 if ((params as GridValueGetterParams).value) {
-                    return <p>{params.value[0].name}</p>
+                    return <p>{params.value[0]?.name}</p>
                 }
             },
             width: 150,
@@ -140,8 +140,8 @@ export const AdoptionRequestTableComponent: FunctionComponent<Props> = ({
             renderCell: (params: any) => {
                 return (
                     <p>
-                        ({params.value.substring(0, 3)}) {params.value.substring(3, 6)}-
-                        {params.value.substring(6, 10)}
+                        ({params.value?.substring(0, 3)}) {params.value?.substring(3, 6)}-
+                        {params.value?.substring(6, 10)}
                     </p>
                 )
             },
@@ -173,7 +173,7 @@ export const AdoptionRequestTableComponent: FunctionComponent<Props> = ({
             align: 'left',
             renderCell: (params: any) => {
                 if (params.value === 'null') return null
-                else return params.value.charAt(0).toUpperCase() + params.value.slice(1)
+                else return params.value?.charAt(0).toUpperCase() + params.value?.slice(1)
             },
         },
         {
