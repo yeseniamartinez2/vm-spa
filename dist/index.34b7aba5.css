@@ -62,6 +62,20 @@ a {
   font-family: Bowlby One SC, cursive;
 }
 
+.btn_filled_dark {
+  color: #fff;
+  height: auto;
+  width: auto;
+  max-width: 250px;
+  cursor: pointer;
+  background-color: #005c64;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 2px;
+  padding: 5px 18px;
+  font-family: Bowlby One SC, cursive;
+}
+
 .btn_light {
   color: #efd309;
   border-color: #efd309;

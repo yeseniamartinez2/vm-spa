@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { IAdoptionRequest } from '../../models/adoptionRequest.interface'
 export interface IRequestTile {
     adoptionRequest: IAdoptionRequest
@@ -10,6 +11,11 @@ const RequestTile = ({ adoptionRequest }: IRequestTile) => {
     const api_url = process.env.VM_API_URL || 'http://localhost:3001'
     const [petName, setPetName] = useState('')
     const [petFilename, setFilename] = useState('')
+    const navigate = useNavigate()
+
+    const navigateToConfirmation = () => {
+        navigate('../adoption-confirmation', { state: _id })
+    }
 
     useEffect(() => {
         setPetName(adoptionRequest.pet[0].name)
@@ -23,6 +29,11 @@ const RequestTile = ({ adoptionRequest }: IRequestTile) => {
                 <h3>{petName}</h3>
                 <p>Submitted: {dayjs(date_submitted).format('DD-MM-YYYY')}</p>
                 <p>Status: {status.charAt(0).toUpperCase() + status.slice(1)}</p>
+                {status === 'approved' && (
+                    <button className="btn_filled_dark" onClick={navigateToConfirmation}>
+                        Confirm & Pay
+                    </button>
+                )}
             </div>
         </div>
     )

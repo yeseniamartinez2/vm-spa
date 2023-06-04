@@ -7,11 +7,19 @@ import { AdminProtectedRoute } from './components/AdminProtectedRoute'
 import AdoptionRequestForm from './components/AdoptionRequestForm/AdoptionRequestForm.component'
 import Home from './components/Home/Home'
 import { MenuContainer } from './components/Navigation/Menu.container'
+import Payment from './components/Payment/Payment.component'
 import { PetDetailContainer } from './components/PetDetail/PetDetail.container'
 import { PetListContainer } from './components/PetList/PetList.container'
+
 const App = () => {
     const { getIdTokenClaims, user } = useAuth0()
     const [roles, setRoles] = useState('')
+
+    const options = {
+        // passing the client secret obtained from the server
+        clientSecret: process.env.STRIPE_SECRET,
+    }
+
     useEffect(() => {
         const getRoles = async () => {
             const roleClaimType = 'https://yeseniatfm.com/roles'
@@ -34,6 +42,7 @@ const App = () => {
                 <Route path="pets/" element={<PetListContainer />} />
                 <Route path="pets/:petId" element={<PetDetailContainer />} />
                 <Route path="adoption-request" element={<AdoptionRequestForm />} />
+                <Route path="payment" element={<Payment />} />
             </Routes>
         </>
     )

@@ -8,7 +8,7 @@ const mockedUseAuth0 = jest.mocked(useAuth0)
 
 describe('Menu', () => {
     test('renders user menu', () => {
-        const { queryAllByRole } = render(<Menu roles={''} />, {
+        const { queryAllByRole } = render(<Menu roles={''} requests={[]} />, {
             wrapper: HashRouter,
         })
         const options = queryAllByRole('menuitem').map((x) => x.querySelector('a')?.innerHTML)

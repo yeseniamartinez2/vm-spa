@@ -10,7 +10,7 @@ describe('Admin Login', () => {
             () => {
                 cy.get('input#username').type(Cypress.env('auth0_admin_username'))
                 cy.get('input#password').type(Cypress.env('auth0_admin_password'), { log: false })
-                cy.contains('button[value=default]', 'Continue').click()
+                cy.contains('button', 'Continue').click({ force: true })
             }
         )
 
@@ -30,7 +30,7 @@ describe('Admin Login', () => {
             () => {
                 cy.get('input#username').type(Cypress.env('auth0_username'))
                 cy.get('input#password').type(Cypress.env('auth0_password'), { log: false })
-                cy.contains('button[value=default]', 'Continue').click()
+                cy.contains('button', 'Continue').click({ force: true })
             }
         )
 

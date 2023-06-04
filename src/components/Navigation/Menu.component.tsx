@@ -25,14 +25,19 @@ export const Menu = ({ roles, requests }: IMenuProps) => {
                     <img id="logo" className="logo" src={process.env.PUBLIC_URL + '/logo.svg'} />
                 </Link>
                 <ul>
-                    <li className="menu__item" role="menuitem">
+                    <li className="menu__item" role="menuitem" key="1">
                         <Link to="/">Home</Link>
                     </li>
-                    <li className="menu__item" role="menuitem">
+                    <li className="menu__item" role="menuitem" key="2">
                         <Link to="pets">Adopt</Link>
                     </li>
                     {requests.length > 0 && (
-                        <li className="menu__item" role="menuitem" onClick={() => toggleDrawer()}>
+                        <li
+                            className="menu__item"
+                            role="menuitem"
+                            onClick={() => toggleDrawer()}
+                            key="3"
+                        >
                             My Requests
                         </li>
                     )}
