@@ -66,12 +66,12 @@ a {
   color: #fff;
   height: auto;
   width: auto;
-  max-width: 250px;
+  width: 250px;
   cursor: pointer;
   background-color: #005c64;
-  border-style: solid;
-  border-width: 2px;
+  border: 2px solid #005c64;
   border-radius: 2px;
+  margin-top: 10px;
   padding: 5px 18px;
   font-family: Bowlby One SC, cursive;
 }
@@ -512,11 +512,22 @@ nav div {
   text-decoration: underline;
 }
 
-.request-tile {
+.request-tile_wrapper {
   border-bottom: 1px solid #c7c7c7;
-  margin: 10px;
-  padding: 0 0 10px;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
   display: flex;
+}
+
+.request-tile {
+  margin: 10px;
+  display: flex;
+}
+
+.status {
+  color: #005c64;
+  font-family: Lato, sans-serif;
 }
 
 .request-tile__info {
@@ -613,6 +624,27 @@ nav div {
   color: gray;
   font-family: Bowlby One SC, cursive;
   font-size: 1.7rem;
+}
+
+.payment-form__container {
+  min-width: 400px;
+  background-color: #fff;
+  border: 1px solid #b2b2b2;
+  border-radius: 4px;
+  margin: 10px 35vw 30px;
+  padding: 15px;
+}
+
+.payment-form__heading {
+  margin: 5vh 35vw 0;
+}
+
+.btn-payment {
+  width: 100%;
+}
+
+.payment-confirmation__container {
+  margin: 50px 30vw;
 }
 
 /*# sourceMappingURL=index.34b7aba5.css.map */

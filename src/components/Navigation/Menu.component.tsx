@@ -52,7 +52,7 @@ export const Menu = ({ roles, requests }: IMenuProps) => {
                 >
                     <h2>Adoption Requests</h2>
                     {requests.map((req) => (
-                        <RequestTile adoptionRequest={req} />
+                        <RequestTile adoptionRequest={req} toggleDrawer={toggleDrawer} />
                     ))}
                 </Drawer>
                 <span className="username">

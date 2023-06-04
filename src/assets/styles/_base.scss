@@ -63,13 +63,15 @@ a {
 .btn_filled_dark {
     background-color: $baseBlue;
     color: white;
+    border-color: $baseBlue;
     border-width: 2px;
     border-radius: 2px;
     border-style: solid;
     height: auto;
     width: auto;
-    max-width: 250px;
+    width: 250px;
     padding: 5px 18px;
+    margin-top: 10px;
     font-family: $headerFont;
 
     cursor: pointer;

@@ -1,10 +1,9 @@
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { useState } from 'react'
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ id }: any) {
     const stripe = useStripe()
     const elements = useElements()
-
     const [message, setMessage] = useState('')
     const [isProcessing, setIsProcessing] = useState(false)
 
@@ -23,7 +22,7 @@ export default function CheckoutForm() {
             elements,
             confirmParams: {
                 // Make sure to change this to your payment completion page
-                return_url: `${window.location.origin}/`,
+                return_url: `${window.location.origin}/#/confirmation/${id}`,
             },
         })
 
@@ -39,7 +38,11 @@ export default function CheckoutForm() {
     return (
         <form id="payment-form" onSubmit={handleSubmit}>
             <PaymentElement id="payment-element" />
-            <button disabled={isProcessing || !stripe || !elements} id="submit">
+            <button
+                className="btn_filled_dark btn-payment"
+                disabled={isProcessing || !stripe || !elements}
+                id="submit"
+            >
                 <span id="button-text">{isProcessing ? 'Processing ... ' : 'Pay now'}</span>
             </button>
             {/* Show any error or success messages */}

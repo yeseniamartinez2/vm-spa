@@ -108,13 +108,24 @@
     }
 }
 
-.request-tile {
+.request-tile_wrapper {
     display: flex;
-    margin: 10px;
-    padding: 0 0 10px 0;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: rgb(199, 199, 199);
+}
+
+.request-tile {
+    display: flex;
+    margin: 10px;
+}
+
+.status {
+    color: $baseBlue;
+    font-family: $baseFont;
 }
 
 .request-tile__info {

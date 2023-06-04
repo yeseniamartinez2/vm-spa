@@ -28,10 +28,6 @@ const AdoptionRequestForm: FunctionComponent = () => {
         navigate('/pets')
     }
     const invalidData = () => {
-        console.log(
-            "🌿 ~ file: AdoptionRequestForm.component.tsx:27 ~ invalidData ~ phoneNumber === '' || income === '' || experienceDescription === '':",
-            phoneNumber === '' || income === '' || experienceDescription === ''
-        )
         if (phoneNumber === '' || income === '' || experienceDescription === '') {
             return true
         } else {
@@ -40,8 +36,6 @@ const AdoptionRequestForm: FunctionComponent = () => {
     }
 
     const requestBody = () => {
-        console.log('🌿 ~ file: AdoptionRequestForm.component.tsx:53 ~ requestBody ~ user:', user)
-
         return {
             pet_id: location.state[0]._id,
             user_email: user?.email,

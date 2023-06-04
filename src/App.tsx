@@ -8,6 +8,7 @@ import AdoptionRequestForm from './components/AdoptionRequestForm/AdoptionReques
 import Home from './components/Home/Home'
 import { MenuContainer } from './components/Navigation/Menu.container'
 import Payment from './components/Payment/Payment.component'
+import PaymentConfirmation from './components/Payment/PaymentConfirmation.component'
 import { PetDetailContainer } from './components/PetDetail/PetDetail.container'
 import { PetListContainer } from './components/PetList/PetList.container'
 
@@ -43,6 +44,7 @@ const App = () => {
                 <Route path="pets/:petId" element={<PetDetailContainer />} />
                 <Route path="adoption-request" element={<AdoptionRequestForm />} />
                 <Route path="payment" element={<Payment />} />
+                <Route path="confirmation/:petId" element={<PaymentConfirmation />} />
             </Routes>
         </>
     )
