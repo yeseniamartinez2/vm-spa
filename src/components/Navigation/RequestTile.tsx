@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { IAdoptionRequest } from '../../models/adoptionRequest.interface'
 export interface IRequestTile {
@@ -13,6 +14,7 @@ const RequestTile = ({ adoptionRequest, toggleDrawer }: IRequestTile) => {
     const [petName, setPetName] = useState('')
     const [petFilename, setFilename] = useState('')
     const navigate = useNavigate()
+    const { t } = useTranslation()
 
     const navigateToConfirmation = () => {
         navigate('../payment', { state: _id })
@@ -30,12 +32,12 @@ const RequestTile = ({ adoptionRequest, toggleDrawer }: IRequestTile) => {
                 <img height="70" width="70" src={api_url + petFilename + '_medium.avif'} />
                 <div className="request-tile__info">
                     <h3>{petName}</h3>
-                    <p>Submitted: {dayjs(date_submitted).format('DD-MM-YYYY')}</p>
                     <p>
-                        Status:{' '}
-                        <span className="status">
-                            {status.charAt(0).toUpperCase() + status.slice(1)}
-                        </span>
+                        {t('adoption_reqs.submitted')}: {dayjs(date_submitted).format('DD-MM-YYYY')}
+                    </p>
+                    <p>
+                        {t('adoption_reqs.status')}:{' '}
+                        <span className="status">{t(`adoption_reqs.${status}`)}</span>
                     </p>
                 </div>
             </div>
@@ -45,7 +47,7 @@ const RequestTile = ({ adoptionRequest, toggleDrawer }: IRequestTile) => {
                         className="btn_filled_dark btn_adoption_payment"
                         onClick={navigateToConfirmation}
                     >
-                        Confirm & Pay
+                        {t('adoption_reqs.pay_btn')}
                     </button>
                 )}
             </div>

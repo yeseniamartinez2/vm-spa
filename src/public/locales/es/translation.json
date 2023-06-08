@@ -1,0 +1,43 @@
+{
+    "navigation": {
+        "home": "Inicio",
+        "adopt": "Adoptar",
+        "my_requests": "Mis Solicitudes",
+        "login_btn": "Iniciar Sesión",
+        "logout_btn": "Cerrar Sesión",
+        "go_to": "Ir a",
+        "admin_site": "Sitio Admin"
+    },
+    "adopt": {
+        "title": "Adopta",
+        "see_more": "Ver más",
+        "months": "meses",
+        "years": "años",
+        "description": "Descripción",
+        "vaccinated": "Vacunas",
+        "spayed_neutered": "Esterilización",
+        "req_adoption": "Solicitar Adopción",
+        "log_in": "Iniciar sesión",
+        "to_make_request": "para solicitar"
+    },
+    "adoption_reqs": {
+        "title": "Solicitudes de Adopción",
+        "form_title": "Solicitud de Adopción",
+        "submitted": "Solicitado",
+        "status": "Estado",
+        "rejected": "Rechazada",
+        "approved": "Aprobada",
+        "completed": "Completada",
+        "pay_btn": "Pagar & Confirmar",
+        "phone": "Número de teléfono",
+        "income": "Ingresos",
+        "other_pets": "¿Tienes otras mascotas en el hogar?",
+        "yes": "Sí",
+        "no": "No",
+        "kids": "¿Tienes niños?",
+        "experience": "Describe tu experiencia con mascotas",
+        "submit": "Enviar",
+        "req_submitted": "Solicitud enviada.",
+        "close": "Cerrar"
+    }
+}

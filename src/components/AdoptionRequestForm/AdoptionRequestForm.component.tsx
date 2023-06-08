@@ -11,6 +11,7 @@ import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import TextField from '@mui/material/TextField'
 import { FunctionComponent, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router-dom'
 import AdoptionRequestService from '../../services/adoptionRequest.service'
 const AdoptionRequestForm: FunctionComponent = () => {
@@ -23,6 +24,7 @@ const AdoptionRequestForm: FunctionComponent = () => {
     const [experienceDescription, setExperienceDescription] = useState('')
     const location = useLocation()
     const { user } = useAuth0()
+    const { t } = useTranslation()
     const navigate = useNavigate()
     const navigateToHome = () => {
         navigate('/pets')
@@ -62,7 +64,7 @@ const AdoptionRequestForm: FunctionComponent = () => {
     }
     return (
         <div className="adoption-request__container">
-            <h2>Adoption Request</h2>
+            <h2>{t('adoption_reqs.form_title')}</h2>
             <div className="adoption-request__column1">
                 <div className="adoption-request__image-wrapper">
                     <img
@@ -79,12 +81,14 @@ const AdoptionRequestForm: FunctionComponent = () => {
                 <TextField
                     id="outlined-basic"
                     size="small"
-                    label="Phone number"
+                    label={t('adoption_reqs.phone')}
                     variant="outlined"
                     onChange={(e) => setPhoneNumber(e.target.value)}
                 />
                 <FormControl>
-                    <InputLabel htmlFor="outlined-adornment-amount">Income</InputLabel>
+                    <InputLabel htmlFor="outlined-adornment-amount">
+                        {t('adoption_reqs.income')}
+                    </InputLabel>
                     <OutlinedInput
                         size="small"
                         id="outlined-adornment-amount"
@@ -95,7 +99,7 @@ const AdoptionRequestForm: FunctionComponent = () => {
                 </FormControl>
                 <FormControl>
                     <FormLabel id="other-pets-radio-buttons-group-label">
-                        Do you have other pets at home?
+                        {t('adoption_reqs.other_pets')}
                     </FormLabel>
                     <RadioGroup
                         row
@@ -104,14 +108,22 @@ const AdoptionRequestForm: FunctionComponent = () => {
                         value={otherPets}
                         onChange={(e) => setOtherPets(e.target.value)}
                     >
-                        <FormControlLabel value="true" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="false" control={<Radio />} label="No" />
+                        <FormControlLabel
+                            value="true"
+                            control={<Radio />}
+                            label={t('adoption_reqs.yes')}
+                        />
+                        <FormControlLabel
+                            value="false"
+                            control={<Radio />}
+                            label={t('adoption_reqs.no')}
+                        />
                     </RadioGroup>
                 </FormControl>
 
                 <FormControl>
                     <FormLabel id="other-pets-radio-buttons-group-label">
-                        Do you have kids?
+                        {t('adoption_reqs.kids')}
                     </FormLabel>
                     <RadioGroup
                         row
@@ -120,8 +132,16 @@ const AdoptionRequestForm: FunctionComponent = () => {
                         value={kids}
                         onChange={(e) => setKids(e.target.value)}
                     >
-                        <FormControlLabel value="true" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="false" control={<Radio />} label="No" />
+                        <FormControlLabel
+                            value="true"
+                            control={<Radio />}
+                            label={t('adoption_reqs.yes')}
+                        />
+                        <FormControlLabel
+                            value="false"
+                            control={<Radio />}
+                            label={t('adoption_reqs.no')}
+                        />
                     </RadioGroup>
                 </FormControl>
 
@@ -129,7 +149,7 @@ const AdoptionRequestForm: FunctionComponent = () => {
                     id="outlined-basic"
                     multiline
                     rows={4}
-                    label="Describe you experience with pets:"
+                    label={t('adoption_reqs.experience')}
                     variant="outlined"
                     onChange={(e) => {
                         setExperienceDescription(e.target.value)
@@ -137,15 +157,15 @@ const AdoptionRequestForm: FunctionComponent = () => {
                 />
 
                 <Button variant="contained" onClick={handleSubmit} disabled={invalidData()}>
-                    Submit
+                    {t('adoption_reqs.submit')}
                 </Button>
             </form>
 
             <Modal className="adoption-request__feedback-modal" open={openModal}>
                 <div className="adoption-request__feedback-container">
-                    <p>Request submitted.</p>
+                    <p>{t('adoption_reqs.req_submitted')}</p>
                     <button className={'btn_outlined btn_dark'} onClick={navigateToHome}>
-                        Close
+                        {t('adoption_reqs.close')}
                     </button>
                 </div>
             </Modal>

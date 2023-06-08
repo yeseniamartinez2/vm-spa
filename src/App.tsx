@@ -5,6 +5,7 @@ import './App.css'
 import AdminDashboard from './components/AdminDashboard/AdminDashboard'
 import { AdminProtectedRoute } from './components/AdminProtectedRoute'
 import AdoptionRequestForm from './components/AdoptionRequestForm/AdoptionRequestForm.component'
+import { Footer } from './components/Footer'
 import Home from './components/Home/Home'
 import { MenuContainer } from './components/Navigation/Menu.container'
 import Payment from './components/Payment/Payment.component'
@@ -46,6 +47,7 @@ const App = () => {
                 <Route path="payment" element={<Payment />} />
                 <Route path="confirmation/:petId" element={<PaymentConfirmation />} />
             </Routes>
+            <Footer />
         </>
     )
 }

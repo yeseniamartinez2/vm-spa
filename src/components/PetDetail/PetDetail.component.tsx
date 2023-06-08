@@ -4,6 +4,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import FemaleIcon from '@mui/icons-material/Female'
 import MaleIcon from '@mui/icons-material/Male'
 import { FunctionComponent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import Pet from '../../models/pet.interface'
 
@@ -23,19 +24,20 @@ const genderIcon = (gender: string) => {
     else return <p>Other</p>
 }
 
-function getAge(dateString: string) {
-    var birthDate = new Date(dateString)
-    const today = new Date()
-    const monthDifference = today.getMonth() - birthDate.getMonth()
-    let age =
-        today.getFullYear() - birthDate.getFullYear() - (monthDifference < 0 ? 1 : 0) + ' years'
-    if (age === '0 years') age = monthDifference + ' months'
-    return age
-}
-
 export const PetDetailComponent: FunctionComponent<Props> = ({ pet, loading, error }) => {
     const navigate = useNavigate()
+    const { t } = useTranslation()
     const { isAuthenticated, loginWithRedirect } = useAuth0()
+    function getAge(dateString: string) {
+        var birthDate = new Date(dateString)
+        const today = new Date()
+        const monthDifference = today.getMonth() - birthDate.getMonth()
+        let age: string | number =
+            today.getFullYear() - birthDate.getFullYear() - (monthDifference < 0 ? 1 : 0)
+        if (age === 0) age = monthDifference + ' ' + t('adopt.months')
+        else age = age + ' ' + t('adopt.years')
+        return age
+    }
     const navigateToRequest = () => {
         navigate('../adoption-request', { state: pet })
     }
@@ -64,12 +66,16 @@ export const PetDetailComponent: FunctionComponent<Props> = ({ pet, loading, err
                 </h2>
                 <section className="pet-detail__health-info">
                     <ul>
-                        <li>Vaccinated: {vaxxed && booleanToIcon(vaxxed)} </li>
-                        <li>Spayed/neutered: {spay_neut && booleanToIcon(spay_neut)} </li>
+                        <li>
+                            {t('adopt.vaccinated')}: {vaxxed && booleanToIcon(vaxxed)}{' '}
+                        </li>
+                        <li>
+                            {t('adopt.spayed_neutered')}: {spay_neut && booleanToIcon(spay_neut)}{' '}
+                        </li>
                     </ul>
                 </section>
                 <section className="pet-detail__description">
-                    <h3>Description</h3>
+                    <h3>{t('adopt.description')}</h3>
                     <p>{description}</p>
                 </section>
                 <section className="pet-detail__request">
@@ -80,11 +86,12 @@ export const PetDetailComponent: FunctionComponent<Props> = ({ pet, loading, err
                         onClick={navigateToRequest}
                         disabled={!isAuthenticated}
                     >
-                        Request Adoption
+                        {t('adopt.req_adoption')}
                     </button>
                     {!isAuthenticated && (
                         <span>
-                            <a onClick={() => loginWithRedirect()}>Log In</a> to make request
+                            <a onClick={() => loginWithRedirect()}>{t('adopt.log_in')}</a>{' '}
+                            {t('adopt.to_make_request')}
                         </span>
                     )}
                 </section>

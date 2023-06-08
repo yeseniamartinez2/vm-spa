@@ -1,5 +1,6 @@
 import Card from '@mui/material/Card'
 import { FunctionComponent } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import IPet from '../../models/pet.interface'
 import { genderIcon } from '../../utils/functions'
@@ -8,6 +9,7 @@ type Props = {
 }
 const PetCard: FunctionComponent<Props> = ({ pet }) => {
     const filename = pet.filename || ''
+    const { t } = useTranslation()
     return (
         <Card id="pet-card" key={pet.name} data-testid="pet">
             <img
@@ -20,7 +22,7 @@ const PetCard: FunctionComponent<Props> = ({ pet }) => {
                 <h2>
                     {pet.name} {pet.gender && genderIcon(pet.gender)}
                 </h2>
-                <Link to={'/pets/' + pet._id}>Ver más</Link>
+                <Link to={'/pets/' + pet._id}>{t('adopt.see_more')}</Link>
             </section>
         </Card>
     )

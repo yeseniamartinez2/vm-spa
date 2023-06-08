@@ -21,14 +21,17 @@
 .pet-card__content {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     h2 {
         margin: 0;
-        padding: 10px 0;
+        padding: 10px 8px;
         width: 130px !important;
         text-align: left;
+    }
+    a {
+        margin-right: 20px;
     }
 }
 

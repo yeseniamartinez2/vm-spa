@@ -4,6 +4,7 @@ import { HashRouter as Router } from 'react-router-dom'
 import App from './App'
 import './assets/styles/main.scss'
 import ThemeContext from './contexts/theme.context'
+import './i18n'
 let root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 const domain = process.env.REACT_APP_AUTH0_DOMAIN || ''
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || ''

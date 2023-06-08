@@ -1,9 +1,11 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import Drawer from '@mui/material/Drawer'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { IAdoptionRequest } from '../../models/adoptionRequest.interface'
 import { AuthButton } from './AuthButton'
+import { LanguageSelect } from './LanguageSelect'
 import RequestTile from './RequestTile'
 
 export interface IMenuProps {
@@ -13,7 +15,11 @@ export interface IMenuProps {
 export const Menu = ({ roles, requests }: IMenuProps) => {
     const { isAuthenticated, user } = useAuth0()
     const [openDrawer, setOpenDrawer] = useState(false)
+    const { t, i18n } = useTranslation()
 
+    const changeLanguage = (lng: string) => {
+        i18n.changeLanguage(lng)
+    }
     const toggleDrawer = () => {
         setOpenDrawer(!openDrawer)
     }
@@ -26,10 +32,10 @@ export const Menu = ({ roles, requests }: IMenuProps) => {
                 </Link>
                 <ul>
                     <li className="menu__item" role="menuitem" key="1">
-                        <Link to="/">Home</Link>
+                        <Link to="/">{t('navigation.home')}</Link>
                     </li>
                     <li className="menu__item" role="menuitem" key="2">
-                        <Link to="pets">Adopt</Link>
+                        <Link to="pets">{t('navigation.adopt')}</Link>
                     </li>
                     {requests.length > 0 && (
                         <li
@@ -38,11 +44,12 @@ export const Menu = ({ roles, requests }: IMenuProps) => {
                             onClick={() => toggleDrawer()}
                             key="3"
                         >
-                            My Requests
+                            {t('navigation.my_requests')}
                         </li>
                     )}
                 </ul>
             </div>
+
             <div>
                 <Drawer
                     className="adoption-requests__list"
@@ -50,16 +57,18 @@ export const Menu = ({ roles, requests }: IMenuProps) => {
                     open={openDrawer}
                     onClose={() => toggleDrawer()}
                 >
-                    <h2>Adoption Requests</h2>
+                    <h2>{t('adoption_reqs.title')}</h2>
                     {requests.map((req) => (
                         <RequestTile adoptionRequest={req} toggleDrawer={toggleDrawer} />
                     ))}
                 </Drawer>
+                <LanguageSelect changeLanguage={changeLanguage} />
                 <span className="username">
                     {isAuthenticated && user?.email}
                     {roles.includes('admin') && (
                         <span className="menu__admin-site" role="menu__admin-site">
-                            Go to <Link to="admin/pets">Admin Site</Link>
+                            {t('navigation.go_to')}{' '}
+                            <Link to="admin/pets">{t('navigation.admin_site')}</Link>
                         </span>
                     )}
                 </span>

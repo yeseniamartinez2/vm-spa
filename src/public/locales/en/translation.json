@@ -1,0 +1,43 @@
+{
+    "navigation": {
+        "home": "Home",
+        "adopt": "Adopt",
+        "my_requests": "My Requests",
+        "login_btn": "Log In",
+        "logout_btn": "Log Out",
+        "go_to": "Go to",
+        "admin_site": "Admin Site"
+    },
+    "adopt": {
+        "title": "Adopt",
+        "see_more": "See more",
+        "months": "months",
+        "years": "years",
+        "description": "Description",
+        "vaccinated": "Vaccinated",
+        "spayed_neutered": "Spayed/neutered",
+        "req_adoption": "Request Adoption",
+        "log_in": "Log in",
+        "to_make_request": "to make request"
+    },
+    "adoption_reqs": {
+        "title": "Adoption Requests",
+        "form_title": "Adoption Request",
+        "submitted": "Submmited",
+        "status": "Status",
+        "rejected": "Rejected",
+        "approved": "Accepted",
+        "completed": "Completed",
+        "pay_btn": "Pay & Confirm",
+        "phone": "Phone number",
+        "income": "Income",
+        "other_pets": "Do you have other pets at home?",
+        "yes": "Yes",
+        "no": "No",
+        "kids": "Do you have kids?",
+        "experience": "Describe your experience with pets",
+        "submit": "Submit",
+        "req_submitted": "Request submitted.",
+        "close": "Close"
+    }
+}
