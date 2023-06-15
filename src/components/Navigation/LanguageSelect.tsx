@@ -10,13 +10,9 @@ export const LanguageSelect = ({ changeLanguage }: any) => {
     return (
         <div className="language-select__wrapper">
             {language === 'en' ? (
-                <img src={process.env.PUBLIC_URL + '/usa_flag.png'} width={40} height={30} />
+                <img src={process.env.PUBLIC_URL + '/usaflag.png'} width={40} height={30} />
             ) : (
-                <img
-                    src={process.env.PUBLIC_URL + '/puerto_rico_flag.png'}
-                    width={40}
-                    height={30}
-                />
+                <img src={process.env.PUBLIC_URL + '/prflag.png'} width={40} height={30} />
             )}
             <select
                 id="langSelect"
@@ -32,27 +28,5 @@ export const LanguageSelect = ({ changeLanguage }: any) => {
                 </option>
             </select>
         </div>
-        // <FormControl sx={{ minWidth: 120 }} size="small">
-        //     <Select
-        //         labelId="demo-simple-select-label"
-        //         id="demo-simple-select"
-        //         value={language}
-        //         onChange={handleChange}
-        //         className="lang-menu__select"
-        //     >
-        //         <MenuItem className="lang-menu__item" value={'en'}>
-        //             <img src={process.env.PUBLIC_URL + '/usa_flag.png'} width={30} height={30} />{' '}
-        //             <p>EN</p>
-        //         </MenuItem>
-        //         <MenuItem className="lang-menu__item" value={'es'}>
-        //             <img
-        //                 src={process.env.PUBLIC_URL + '/puerto_rico_flag.png'}
-        //                 width={30}
-        //                 height={30}
-        //             />{' '}
-        //             <p>ES</p>
-        //         </MenuItem>
-        //     </Select>
-        // </FormControl>
     )
 }
